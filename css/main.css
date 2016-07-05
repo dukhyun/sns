@@ -1,0 +1,15 @@
+/* main */
+.login {
+	width: 400px;
+}
+.login input {
+	width: 100%;
+	font-size: 16px;
+	color: #666;
+	padding: 10px;
+	margin: 5px 0;
+	border: 1px solid #ccc;
+}
+.login input[type=submit] {
+	width: 100px;
+}

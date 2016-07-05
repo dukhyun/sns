@@ -11,3 +11,4 @@ li { list-style: none; }
 .floatleft { float: left; }
 .floatright { float: right; }
 .clearboth { clear: both; }
+.center { margin: 0 auto; }
