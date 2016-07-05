@@ -1,7 +1,4 @@
 <?php
-
-//define("USER_ACCOUNTS_FILE_NAME", "user_accounts.txt");
-
 // 하나의 페이지에서 한 번만 호출되어야 한다.
 function start_session() {
     $secure = false; // https
@@ -49,14 +46,14 @@ function try_to_login($id, $password) {
 }
 
 function check_user_account($id, $password) {
-	require_once '../../../../includes/mylib.php';
+	require_once $_SERVER['DOCUMENT_ROOT'].'/../include/host.php';
 	
 	$db_server = get_connection();
 	$select_query = "SELECT * FROM user";
 	$result_set = mysqli_query($db_server, $select_query);
 	while($row = mysqli_fetch_assoc($result_set)) {
-		$this_id = $row['username'];
-		$hash = $row['password'];
+		$this_id = $row['email'];
+		$hash = $row['pw_hash'];
 		if ($this_id === $id && password_verify($password, $hash)) {
 			mysqli_close($result_set);
 			return true;
