@@ -3,12 +3,12 @@
 <head>
 <meta charset="UTF-8">
 <link rel="stylesheet" type="text/css" href="/css/style.css">
-<link rel="stylesheet" type="text/css" href="/css/main.css">
+<link rel="stylesheet" type="text/css" href="/css/login.css">
 </head>
 <body>
 <?php include $_SERVER['DOCUMENT_ROOT'].'/../include/header.php'; ?>
 
-<div class="showlogin">
+<section class="showlogin">
 	<div class="login">
 		<h1>싹트네</h1>
 		<form action="login_db.php" method="POST">
@@ -34,7 +34,7 @@
 			</ul>
 		</form>
 	</div>
-</div>
+</section>
 
 <?php // footer ?>
 
