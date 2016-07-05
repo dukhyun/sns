@@ -7,7 +7,8 @@
 <body>
 <?php 
 	include $_SERVER['DOCUMENT_ROOT'].'/../include/header.php';
-	require_once '../../../../include/host.php';
+	require_once $_SERVER['DOCUMENT_ROOT'].'/../include/host.php';
+	
 	if (isset($_POST['email'], $_POST['nick'], $_POST['password'])) {
 		$email = $_POST['email'];
 		$nick = $_POST['nick'];
@@ -26,12 +27,6 @@
 		echo 'register form error..!';
 	}
 	mysqli_close($db_server);
-	}
-
-	
-	
-	
-	
 ?>
 </body>
 </html>
