@@ -12,4 +12,5 @@
 }
 .login input[type=submit] {
 	width: 100px;
+	margin-left: 5px;
 }

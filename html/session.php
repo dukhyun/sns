@@ -1,5 +1,4 @@
 <?php
-// 하나의 페이지에서 한 번만 호출되어야 한다.
 function start_session() {
     $secure = false; // https
     $httponly = true; // 클라이언트에서 세션 쿠키를 수정 불가능 
@@ -80,5 +79,4 @@ function try_to_logout() {
 	} else {
 	}
 }
-
  ?>

@@ -5,8 +5,9 @@
 <link rel="stylesheet" type="text/css" href="/css/style.css">
 </head>
 <body>
-<?php 
-	include $_SERVER['DOCUMENT_ROOT'].'/../include/header.php';
+<?php include $_SERVER['DOCUMENT_ROOT'].'/../include/header.php'; ?>
+
+<?php
 	require_once 'session.php';
 	start_session();
 	
@@ -15,9 +16,8 @@
 		$password = $_POST['password'];
 	
 		if (try_to_login($email, $password) ==	 true) {
-			//header('Location: protected_page.php?id='.$id);
 			if (check_login()) {
-				header('Location: 대쉬보드.php?');
+				header('Location: dashboard/');
 			}
 		} else {
 			//header('Location: error.php?error_code=1');
@@ -26,5 +26,7 @@
 		echo 'login form error..!';
 	}
 ?>
+
+<?php // footer ?>
 </body>
 </html>

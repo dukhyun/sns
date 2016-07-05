@@ -18,13 +18,19 @@
 			<li>
 				<input type="text" name="password" value="password" onfocus="if(this.value =='password') { this.value=''; this.type='password'; }" onblur="if(this.value =='') { this.value='password'; this.type='text'; }">
 			</li>
+		</ul>
+		<ul>
 			<li class="floatright">
 				<input type="submit" value="login">
 			</li>
 		</ul>
 	</form>
 	<form action="register_form.php">
-		<input type="submit" value="register">
+		<ul>
+			<li class="floatright">
+				<input type="submit" value="register">
+			</li>
+		</ul>
 	</form>
 </div>
 
