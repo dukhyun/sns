@@ -1,0 +1,16 @@
+header {
+	width: 100%;
+    height: 50px;
+	padding: 0 10px;
+	margin-bottom: 10px;
+	border-bottom: 1px solid #eee;
+}
+header a {
+	font-size: 16px;
+    padding: 14px;
+	display: block;
+}
+header a:hover {
+	color: black;
+    background-color: red;
+}

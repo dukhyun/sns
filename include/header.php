@@ -1,16 +1,16 @@
-<link rel="stylesheet" type="text/css" href="/css/nav.css">
+<link rel="stylesheet" type="text/css" href="/css/head.css">
 
 <header>
 	<div class="floatleft">
-		nick
+		<a href="#">nick</a>
 	</div>
 	<div class="floatright">
-		<a href="#">home</a>
+		<a href="#">logout</a>
 	</div>
 	<div class="floatright">
 		<a href="#">acc</a>
 	</div>
 	<div class="floatright">
-		<a href="#">logout</a>
+		<a href="#">home</a>
 	</div>
 </header>

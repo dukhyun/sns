@@ -6,7 +6,7 @@
 </haed>
 <body>
 
-<?php include 'include/header.php' ?>
+<?php include $_SERVER['DOCUMENT_ROOT'].'/../include/header.php' ?>
 
 index.php Test
 
