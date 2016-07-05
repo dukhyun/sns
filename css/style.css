@@ -6,4 +6,8 @@
 }
 a { color:#575757; text-decoration:none; outline:0; }
 a:hover { color: blue; }
-span { font-size: 16px; }
+li { list-style: none; }
+.fix { overflow: hidden; }
+.floatleft { float: left; }
+.floatright { float: right; }
+.clearboth { clear: both; }

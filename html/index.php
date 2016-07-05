@@ -2,13 +2,15 @@
 <html>
 <haed>
 <meta charset="UTF-8">
-<link rel="stylesheet" type="text/css" href="css/style.css">
+<link rel="stylesheet" type="text/css" href="/css/style.css">
 </haed>
 <body>
+
+<?php include 'include/header.php' ?>
+
 index.php Test
-<br>
-<span>span css test</span>
-<br>
-<a href="#">alink test</a>
+
+<?php // footer ?>
+
 </body>
 </html>
