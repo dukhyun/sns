@@ -23,6 +23,9 @@
 			</li>
 		</ul>
 	</form>
+	<form action="register_form.php">
+		<input type="submit" value="register">
+	</form>
 </div>
 
 <?php // footer ?>
