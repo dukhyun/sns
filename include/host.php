@@ -14,6 +14,48 @@ function get_connection() {
 	return $db_server;
 }
 
+// $_SESSION['id'] = email -> id
+function get_user_id($conn, $email) {
+	$query = sprintf("SELECT id FROM user WHERE email = %s", $email);
+	$result = mysqli_query($conn, $query);
+	if (!$result) {
+		die ("Database access failed: ".mysqli_error());
+	}
+	$row = mysqli_fetch_assoc($result);
+	return $row['id'];
+}
+
+// post(user_id) -> user(nick)
+function get_user_nick($conn, $user_id) {
+	$query = sprintf("SELECT nick FROM user WHERE id = %d", $user_id);
+	$result = mysqli_query($conn, $query);
+	if (!$result) {
+		die ("Database access failed: ".mysqli_error());
+	}
+	$row = mysqli_fetch_assoc($result);
+	
+	return $row['nick'];
+}
+
+// post(category_id) -> category(name)
+function get_category($conn, $id) {
+	$query = sprintf("SELECT name FROM category WHERE id = %d", $id);
+	$result = mysqli_query($conn, $query);
+	if (!$result) {
+		die ("Database access failed: ".mysqli_error());
+	}
+	$row = mysqli_fetch_assoc($result);
+	
+	return $row['name'];
+}
+
+function time_set($date) {
+	$timezone = 'GMT+0';
+	$date = strtotime($date.' '.$timezone);
+	$date = date('Y-m-d H:i:s', $date);
+	return $date;
+}
+
 // 쿠키 생성
 function start_session() {
 	$secure = false;
