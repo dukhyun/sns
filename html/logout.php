@@ -8,13 +8,13 @@
 <body>
 
 <?php
-	require_once '../include/host.php';
-	
-	start_session();
-	try_to_logout();
-	destroy_session();
-	
-	header('Location: index.php');
+require_once $_SERVER['DOCUMENT_ROOT'].'/../include/host.php';
+
+start_session();
+try_to_logout();
+destroy_session();
+
+header('Location: /');
 ?>
 </body>
 </html>

@@ -14,12 +14,12 @@
 		$password = password_hash($_POST['password'], PASSWORD_DEFAULT);
 		
 		$db_server = get_connection();
-		$insert_query = sprintf("INSERT INTO user(id, nick, pw_hash) values('%s', '%s', '%s');", $email, $nick, $password);
+		$insert_query = sprintf("INSERT INTO user(email, nick, pw_hash) values('%s', '%s', '%s');", $email, $nick, $password);
 		if (mysqli_query($db_server, $insert_query) === false) {
 			echo mysqli_error($db_server);
 		} else {
 			echo "register success..! <br><br>";
-			echo "<a href='index.php'>login</a><br>";
+			header('Location: /');
 		}
 	} else {
 		echo 'register form error..!';

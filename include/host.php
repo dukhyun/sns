@@ -74,7 +74,7 @@ function check_login() {
 function check_user_account($id, $password) {
 	$conn = get_connection();
 	// statement : 명제
-	$stmt = mysqli_prepare($conn, "SELECT pw_hash FROM user WHERE id = ?");
+	$stmt = mysqli_prepare($conn, "SELECT pw_hash FROM user WHERE email = ?");
 	mysqli_stmt_bind_param($stmt, "s", $id);
 	mysqli_stmt_execute($stmt);
 	$result = mysqli_stmt_get_result($stmt);
