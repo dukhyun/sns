@@ -12,6 +12,18 @@ section {
 	/* aside width + 20px */
 	margin-left: 170px;
 }
+.action {
+	height: 50px;
+	display: block;
+}
+.action a {
+    padding: 10px;
+	border-radius: 3px;
+}
+.action a:hover {
+	color: black;
+	background-color: LawnGreen;
+}
 /* post view */
 .post {
 	width: 600px;

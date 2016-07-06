@@ -11,9 +11,9 @@
 
 <div class="content">
 <?php
-	include '/aside.php'; // 사이드바
+	include_once '/aside.php'; // 사이드바
 	
-	include '/post_list.php'; // 포스트 리스트
+	include_once '/post_list.php'; // 포스트 리스트
 ?>
 </div>
 
