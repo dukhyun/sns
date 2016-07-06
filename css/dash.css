@@ -1,12 +1,21 @@
 /* aside */
 aside {
 	width: 150px;
-	background-color: lightgreen;
+	padding: 5px 10px;
 	border: 1px solid #ddd;
-	margin: 10px;
+	border-radius: 3px;
+	margin-left: 10px;
+	background-color: lightgreen;
 }
 /* section */
 section {
 	/* aside width + 20px */
 	margin-left: 170px;
+}
+/* post view */
+.post {
+	width: 600px;
+	padding: 10px;
+	border: 1px solid #eee;
+	border-radius: 3px;
 }
