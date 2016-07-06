@@ -6,11 +6,11 @@
 <link rel="stylesheet" type="text/css" href="/css/login.css">
 </head>
 <body>
-<?php include $_SERVER['DOCUMENT_ROOT'].'/../include/header.php'; ?>
+<?php include_once $_SERVER['DOCUMENT_ROOT'].'/../include/header.php'; ?>
 
 <section class="showlogin">
 	<div class="login">
-		<h1>싹트네 회원가입</h1>
+		<h1>회원가입</h1>
 		<form action="register_db.php" method="POST">
 			<ul>
 				<li>
@@ -22,7 +22,7 @@
 				<li>
 					<input type="text" name="password" value="password" onfocus="if(this.value =='password') { this.value=''; this.type='password'; }" onblur="if(this.value =='') { this.value='password'; this.type='text'; }">
 				</li>
-				<li class="floatright">
+				<li>
 					<input type="submit" value="register">
 				</li>
 			</ul>

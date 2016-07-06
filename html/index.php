@@ -6,7 +6,7 @@
 <link rel="stylesheet" type="text/css" href="/css/login.css">
 </head>
 <body>
-<?php include $_SERVER['DOCUMENT_ROOT'].'/../include/header.php'; ?>
+<?php include_once $_SERVER['DOCUMENT_ROOT'].'/../include/header.php'; ?>
 
 <section class="showlogin">
 	<div class="login">
@@ -21,11 +21,12 @@
 				</li>
 			</ul>
 			<ul>
-				<li class="floatright">
+				<li>
 					<input type="submit" value="login">
 				</li>
 			</ul>
 		</form>
+		<!--
 		<form action="register_form.php">
 			<ul>
 				<li class="floatright">
@@ -33,6 +34,7 @@
 				</li>
 			</ul>
 		</form>
+		//-->
 	</div>
 </section>
 

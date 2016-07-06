@@ -11,23 +11,26 @@
 		top: 50%;
 		left: 50%;
 		margin-top: -150px;
-		margin-left: -200px;
+		margin-left: -150px;
 		position: absolute;
 		z-index: 0;
 	}
 }
 @media screen and (max-height: 480px) {
-	.showlogin {
-		width: 100%;
-	}
 	.login {
-		margin: 40px auto;
+		padding: 40px 0;
+		margin: auto;
 	}
+}
+.showlogin {
+	width: 100%;
+	background-color: #ccc;
 }
 .login {
-	width: 400px;
+	width: 300px;
 }
 .login h1 {
+	font-size: 42px;
 	text-align: center;
 	height: 80px;
 }
@@ -35,11 +38,13 @@
 	width: 100%;
 	font-size: 16px;
 	color: #666;
-	padding: 10px;
+	padding: 14px 10px;
 	margin: 5px 0;
-	border: 1px solid #ccc;
+	border: 0;
+	border-radius: 3px;
 }
 .login input[type=submit] {
-	width: 100px;
-	margin-left: 5px;
+	color: white;
+	/* border: 1px solid #666; */
+	background-color: #529ECC;
 }

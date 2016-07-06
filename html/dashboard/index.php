@@ -7,12 +7,12 @@
 </head>
 <body>
 
-<?php include $_SERVER['DOCUMENT_ROOT'].'/../include/header.php' ?>
+<?php include_once $_SERVER['DOCUMENT_ROOT'].'/../include/header.php' ?>
 
 <div class="content">
 <?php
-	include '/aside.php';
-	include '/post_list.php';
+	include '/aside.php'; // 사이드바
+	include '/post_list.php'; // 포스트 리스트
 ?>
 </div>
 

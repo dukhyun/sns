@@ -1,12 +1,12 @@
 /* aside */
 aside {
 	width: 150px;
-	min-height: 400px;
 	background-color: lightgreen;
 	border: 1px solid #ddd;
-	margin-right: 10px;
+	margin: 10px;
 }
 /* section */
 section {
-	width: 100%;
+	/* aside width + 20px */
+	margin-left: 170px;
 }

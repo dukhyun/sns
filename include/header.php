@@ -1,13 +1,17 @@
 <link rel="stylesheet" type="text/css" href="/css/head.css">
 
+<?php
+require_once $_SERVER['DOCUMENT_ROOT'].'/../include/host.php';
+start_session();
+?>
+
 <header>
 	<div class="title floatleft">
 		<a href="/">싹트네</a>
 	</div>
 <?php
-include $_SERVER['DOCUMENT_ROOT'].'/session.php';
-start_session();
-if (check_login()) { // 비로그인
+if (check_login()) {  // 로그인
+	// 세션 : get_nick();
 ?>
 	<div class="floatright">
 		<a href="#">logout</a>
@@ -16,11 +20,10 @@ if (check_login()) { // 비로그인
 		<a href="#">profile</a>
 	</div>
 	<div class="floatright">
-		<a href="#">dashboard</a>
+		<a href="/dashboard/">dashboard</a>
 	</div>
 <?php
-} else { // 로그인
-	// 세션 : get_nick();
+} else { // 비로그인
 ?>
 	<div class="floatright">
 		<a href="/register_form.php">register</a>
