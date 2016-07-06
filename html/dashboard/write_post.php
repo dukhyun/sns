@@ -3,29 +3,36 @@
 <head>
 <meta charset="UTF-8">
 <link rel="stylesheet" type="text/css" href="/css/style.css">
-<link rel="stylesheet" type="text/css" href="/css/login.css">
+<link rel="stylesheet" type="text/css" href="/css/dash.css">
 </head>
 <body>
 <?php 
 	include_once $_SERVER['DOCUMENT_ROOT'].'/../include/header.php'; 
-	include_once $_SERVER['DOCUMENT_ROOT'].'/../include/host.php';
 ?>
 
-<h1>글 작성</h1><br>
-<form action="write_db.php" method="post">
-	<ul>
-		<li>
-			카테고리: <input type="text" name="category">
-		</li>
-		<li>
-			내용: <br>
-			<textarea rows = "10" cols = "50%" input type="text" name="content"></textarea>
-		</li>
-		<li>
-			<input type="submit" value="제출">
-		</li>
-	</ul>
-</form>
+<div class="form_style center">
+	<h1>글 작성</h1><br>
+	<form action="write_db.php" method="post">
+		<ul>
+			<li>
+				카테고리:
+				<label for="category"></label>
+				<select id="category" name="category">
+					<option value="1">112312313123123</option>
+					<option value="2">2</option>
+					<option value="3">3</option>
+				</select>
+			</li>
+			<li>
+				내용: <br>
+				<textarea type="text" name="content"></textarea>
+			</li>
+			<li>
+				<input type="submit" value="제출">
+			</li>
+		</ul>
+	</form>
+</div>
 
 <?php // footer ?>
 

@@ -31,3 +31,26 @@ section {
 	border: 1px solid #eee;
 	border-radius: 3px;
 }
+/* form */
+.form_style {
+	width: 500px;
+}
+.form_style select {
+	min-width: 50px;
+	max-width: 100%;
+	padding: 2px 4px;
+	border: 1px solid #aaa;
+	cursor: default;
+}
+.form_style textarea {
+	width: 100%;
+	min-height: 200px;
+	padding: 10px;
+	border: 1px solid #aaa;
+	resize: vertical;
+}
+.form_style input[type=submit] {
+	font-size: 16px;
+	padding: 5px 10px;
+	border: 1px solid #aaa;
+}
