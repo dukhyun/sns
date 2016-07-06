@@ -12,6 +12,7 @@
 <div class="content">
 <?php
 	include '/aside.php'; // 사이드바
+	
 	include '/post_list.php'; // 포스트 리스트
 ?>
 </div>
