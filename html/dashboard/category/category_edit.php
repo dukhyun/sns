@@ -17,27 +17,29 @@ $conn = get_connection();
 
 <div class="form_style category_edit center">
 	<h1>카테고리</h1>
-	<ul class="clearboth">
 	<?php // 카테고리 리스트 보여주기
 		$result = get_category_list($conn);
 		while ($row = mysqli_fetch_assoc($result)) {
+			echo '<ul class="clearboth">';
 			printf('<li class="category_name floatleft">%s</li>', $row['name']);
-			
+			$category_id = $row['id'];
 	?>
 		<li class="floatleft">
-			<form action="update_category.php?id=<?php echo $category_id; ?>" method="post">
+			<form action="update_category.php" method="post">
+				<input type="hidden" name="id" value="<?php echo $category_id; ?>" readonly>
 				<input type="submit" value="수정">
 			</form>
 		</li>
 		<li class="floatleft">
-			<form action="delete_category.php?id=<?php echo $category_id; ?>" method="post">
+			<form action="delete_category.php" method="post">
+				<input type="hidden" name="id" value="<?php echo $category_id; ?>" readonly>
 				<input type="submit" value="삭제">
 			</form>
 		</li>
+	</ul>
 	<?php
 		}
 	?>
-	</ul>
 	<ul class="clearboth">
 		<form action="insert_category.php" method="post">
 			<li class="floatleft">
