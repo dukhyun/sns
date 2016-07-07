@@ -49,7 +49,25 @@ function get_category($conn, $id) {
 	return $row['name'];
 }
 
+// db -> category list
+function get_category_list($conn) {
+	$user_id = get_user_id($conn, $_SESSION['id']);
+	$query = sprintf("SELECT * FROM category WHERE user_id = %d", $user_id);
+	$result = mysqli_query($conn, $query);
+	if (!$result) {
+		die ("Database access failed: ".mysqli_error());
+	}
+	$row = mysqli_fetch_assoc($result);
+	
+	return $row;
+}
+
+
+// 타임셋
 function time_set($date) {
+	if (!$date) {
+		return $date;
+	}
 	$timezone = 'GMT+0';
 	$date = strtotime($date.' '.$timezone);
 	$date = date('Y-m-d H:i:s', $date);

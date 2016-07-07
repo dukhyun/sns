@@ -1,16 +1,30 @@
 /* aside */
-aside {
+.side {
+	width: 170px;
+	height: 300px;
+	padding: 10px;
+	border-right: 1px solid #ddd;
+	background-color: #eee;
+}
+.widget {
 	width: 150px;
 	padding: 5px 10px;
 	border: 1px solid #ddd;
 	border-radius: 3px;
-	margin-left: 10px;
 	background-color: lightgreen;
 }
+.widget input[type=submit] {
+	padding: 2px;
+	border: 0;
+	background-color: transparent;
+}
+.widget input[type=submit]:hover {
+	color: red;
+}
 /* section */
-section {
+.main {
 	/* aside width + 20px */
-	margin-left: 170px;
+	margin-left: 10px;
 }
 .action {
 	height: 50px;

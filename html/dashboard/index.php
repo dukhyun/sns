@@ -9,13 +9,9 @@
 
 <?php include_once $_SERVER['DOCUMENT_ROOT'].'/../include/header.php' ?>
 
-<div class="content">
-<?php
-	include_once '/aside.php'; // 사이드바
-	
-	include_once '/post_list.php'; // 포스트 리스트
-?>
-</div>
+<?php include_once '/sidebar.php'; ?>
+
+<?php include_once '/post_list.php'; ?>
 
 <?php // footer ?>
 

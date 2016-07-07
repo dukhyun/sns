@@ -1,4 +1,4 @@
-<section id="content">
+<section class="main floatleft">
 	<!-- action //-->
 	<div class="action">
 		<a class="floatleft" href="/dashboard/write_post.php">글작성</a>
