@@ -4,6 +4,7 @@
 	-moz-box-sizing: border-box;
 	box-sizing: border-box;
 }
+body { min-width: 800px; }
 a { color:#575757; text-decoration:none; outline:0; }
 a:hover { color: blue; }
 li { list-style: none; }

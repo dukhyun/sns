@@ -11,7 +11,7 @@ if (check_login()) {  // 로그인
 	// 세션 : get_nick();
 ?>
 	<div class="title floatleft">
-		<a href="/dashboard/">싹트네</a>
+		<a href="/dashboard/"><?php echo $_SESSION['id']; ?></a>
 	</div>
 	<div class="floatright">
 		<a href="../logout.php">logout</a>
