@@ -7,15 +7,11 @@
 </head>
 <body>
 <?php
-$root = '/../..';
+$root = '../..';
 include_once $root.'/../include/header.php';
 ?>
 
-<?php
-$conn = get_connection();
-$row = get_category_list($conn);
 
-?>
 
 <?php // footer ?>
 

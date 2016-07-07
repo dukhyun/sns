@@ -1,14 +1,24 @@
 <!-- category //-->
 <div class="widget">
-	<h4>category</h4>
+	<div class="header">
+		<h4 class="floatleft">category</h4>
+		
+		<form class="floatright" action="category/category_edit.php" method="post">
+			<input type="submit" value="수정">
+		</form>
+	</div>
 	
 <?php
 	$conn = get_connection();
-	//$row = get_category_list($conn);
-	//echo $row['name'];
+	$result = get_category_list($conn);
 ?>
-	
-	<form action="category/update_post.php" method="post">
-		<input type="submit" value="수정">
-	</form>
+	<ul>
+<?php
+	while ($row = mysqli_fetch_assoc($result)) {
+		printf('<li><a href="/dashboard/index.php?category_id=%d">%s</a></li>', 
+			$row['id'], $row['name']);
+	}
+?>
+	</ul>
+
 </div>

@@ -14,7 +14,7 @@ if (check_login()) {  // 로그인
 		<a href="/dashboard/"><?php echo $_SESSION['id']; ?></a>
 	</div>
 	<div class="floatright">
-		<a href="../logout.php">logout</a>
+		<a href="/logout.php">logout</a>
 	</div>
 	<div class="floatright">
 		<a href="#">profile</a>
