@@ -5,5 +5,5 @@
 	</div>
 	
 	<!-- post list //-->
-	<?php include_once 'post_view.php';	?>
+<?php include_once "post_view.php"; ?>
 </section>
