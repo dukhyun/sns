@@ -16,9 +16,9 @@ function get_connection() {
 
 // $_SESSION['id'] = email -> id
 function get_user_id($conn, $email) {
-	$query = sprintf("SELECT id FROM user WHERE email = %s", $email);
+	$query = sprintf("SELECT id FROM user WHERE email = '%s'", $email);
 	$result = mysqli_query($conn, $query);
-	if (!$result) {
+	if ($result === false) {
 		die ("Database access failed: ".mysqli_error());
 	}
 	$row = mysqli_fetch_assoc($result);
@@ -29,7 +29,7 @@ function get_user_id($conn, $email) {
 function get_user_nick($conn, $user_id) {
 	$query = sprintf("SELECT nick FROM user WHERE id = %d", $user_id);
 	$result = mysqli_query($conn, $query);
-	if (!$result) {
+	if ($result === false) {
 		die ("Database access failed: ".mysqli_error());
 	}
 	$row = mysqli_fetch_assoc($result);
@@ -38,10 +38,10 @@ function get_user_nick($conn, $user_id) {
 }
 
 // post(category_id) -> category(name)
-function get_category($conn, $id) {
+function get_category_name($conn, $id) {
 	$query = sprintf("SELECT name FROM category WHERE id = %d", $id);
 	$result = mysqli_query($conn, $query);
-	if (!$result) {
+	if ($result === false) {
 		die ("Database access failed: ".mysqli_error());
 	}
 	$row = mysqli_fetch_assoc($result);
@@ -54,12 +54,11 @@ function get_category_list($conn) {
 	$user_id = get_user_id($conn, $_SESSION['id']);
 	$query = sprintf("SELECT * FROM category WHERE user_id = %d", $user_id);
 	$result = mysqli_query($conn, $query);
-	if (!$result) {
+	if ($result === false) {
 		die ("Database access failed: ".mysqli_error());
 	}
-	$row = mysqli_fetch_assoc($result);
 	
-	return $row;
+	return $result;
 }
 
 
