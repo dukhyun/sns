@@ -5,5 +5,15 @@
 	</div>
 	
 	<!-- post list //-->
-<?php include_once "post_view.php"; ?>
+<?php
+	$conn = get_connection();
+
+	$select_query = 'SELECT id FROM post';
+	$result_set = mysqli_query($conn, $select_query);
+	while ($row=mysqli_fetch_assoc($result_set)) {
+?>
+	<?php include "post_view.php"; ?>
+<?php
+	}
+?>
 </section>

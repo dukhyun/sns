@@ -13,6 +13,9 @@
 	border-radius: 3px;
 	background-color: lightgreen;
 }
+.widget .header {
+	height: 30px;
+}
 .widget input[type=submit] {
 	padding: 2px;
 	border: 0;
@@ -38,15 +41,24 @@
 	background-color: LawnGreen;
 }
 /* post view */
-.post {
+article {
+	margin-bottom: 20px;
+}
+article .post {
 	width: 600px;
 	padding: 10px;
 	border: 1px solid #eee;
 	border-radius: 3px;
 }
+article .post div {
+	height: 24px;
+}
 /* form */
 .form_style {
 	width: 500px;
+}
+.form_style li {
+	margin-top: 10px;
 }
 .form_style select {
 	min-width: 50px;
@@ -66,4 +78,20 @@
 	font-size: 16px;
 	padding: 5px 10px;
 	border: 1px solid #aaa;
+}
+/* category edit */
+.category_edit ul {
+	height: 40px;
+}
+.category_edit .category_name {
+	width: 150px;
+	padding: 3px 5px;
+}
+category_edit input[type=submit] {
+	font-size: .8em;
+	padding: 2px 5px;
+}
+.category_edit input[type=text] {
+	width: 150px;
+	padding: 3px 5px;
 }
