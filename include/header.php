@@ -1,7 +1,7 @@
 <link rel="stylesheet" type="text/css" href="/css/head.css">
 
 <?php
-require_once $_SERVER['DOCUMENT_ROOT'].'/../include/host.php';
+require_once $root.'/../include/host.php';
 start_session();
 ?>
 

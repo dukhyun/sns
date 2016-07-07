@@ -6,7 +6,10 @@
 <link rel="stylesheet" type="text/css" href="/css/login.css">
 </head>
 <body>
-<?php include_once $_SERVER['DOCUMENT_ROOT'].'/../include/header.php'; ?>
+<?php
+$root = '';
+include_once $root.'/../include/header.php';
+?>
 
 <section class="showlogin">
 	<div class="login">

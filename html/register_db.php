@@ -5,7 +5,10 @@
 <link rel="stylesheet" type="text/css" href="/css/style.css">
 </head>
 <body>
-<?php include_once $_SERVER['DOCUMENT_ROOT'].'/../include/header.php'; ?>
+<?php
+$root = '';
+include_once $root.'/../include/header.php';
+?>
 
 <?php
 	if (isset($_POST['email'], $_POST['nick'], $_POST['password'])) {
