@@ -19,5 +19,8 @@
 		<p><?php echo $nick; ?></p>
 		<p><?php echo $category; ?></p>
 		<p><?php echo $content; ?></p>
+		
+		<a class="floatright" href="/dashboard/delete_db.php">글삭제</a>
+		<a class="floatright" href="/dashboard/update_post.php">글수정</a>
 	</div>
 </article>
