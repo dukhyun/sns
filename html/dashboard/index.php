@@ -21,8 +21,8 @@ if (isset($_GET['user'])) {
 	$user = get_user_id($conn, $_SESSION['id']);
 }
 
-include_once '/sidebar.php';
-include_once '/post_list.php';
+include_once './sidebar.php';
+include_once './post_list.php';
 ?>
 
 <?php // footer ?>

@@ -1,13 +1,6 @@
 <article>
 <?php
-	// post_list 에서 $conn 선언
 	$post_id = $row['id'];
-	//$query = sprintf("SELECT * FROM post WHERE id = %s", $post_id);
-	//$result = mysqli_query($conn, $query);
-	//if (!$result) {
-	//	die ("Database access failed: ".mysqli_error());
-	//}
-	//$post_row = mysqli_fetch_assoc($result);
 	$user_id = $row['user_id'];
 	$nick = get_user_nick($conn, $user_id);
 	$category = get_category_name($conn, $row['category_id']);

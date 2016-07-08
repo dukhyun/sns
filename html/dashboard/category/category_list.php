@@ -2,14 +2,21 @@
 <div class="widget">
 	<div class="header">
 		<h4 class="floatleft">category</h4>
-		
+	<?php
+		$conn = get_connection();
+		if (check_login()) {
+			if ($_SESSION['id'] == get_user_email($conn, $user)) {
+	?>
 		<form class="floatright" action="category/category_edit.php" method="post">
 			<input type="submit" value="수정">
 		</form>
+	<?php
+			}
+		}
+	?>
 	</div>
 	
 <?php
-	$conn = get_connection();
 	$result = get_category_list($conn, $user);
 ?>
 	<ul>
