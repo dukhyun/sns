@@ -14,12 +14,12 @@
 ?>
 	<ul>
 		<li>
-			<a href="/dashboard/"><b>전체보기</b></a>
+			<a href="/dashboard/?user=<?php echo $user; ?>"><b>전체보기</b></a>
 		</li>
 <?php
 	while ($row = mysqli_fetch_assoc($result)) {
-		printf('<li><a href="/dashboard/index.php?category_id=%d">%s</a></li>', 
-			$row['id'], $row['name']);
+		printf('<li><a href="/dashboard/?user=%d&category_id=%d">%s</a></li>', 
+			$user, $row['id'], $row['name']);
 	}
 ?>
 	</ul>

@@ -17,10 +17,15 @@ if (isset($_POST['content'])) {
 	$content = $_POST['content'];
 	
 	$conn = get_connection();
-	// $category_id = 1;
 	$user_id = get_user_id($conn, $_SESSION['id']);
-	$insert_query = sprintf("INSERT INTO post (content, category_id, user_id)
+	if ($category_id == 0) {
+		$insert_query = sprintf("INSERT INTO post (content, user_id)
+				VALUES ('%s', '%d')", $content, $user_id);
+	} else {
+		$insert_query = sprintf("INSERT INTO post (content, category_id, user_id)
 				VALUES ('%s', '%d', '%d')", $content, $category_id, $user_id);
+		
+	}
 	if (mysqli_query($conn, $insert_query) === false) {
 		echo mysqli_error($conn);
 	} else {

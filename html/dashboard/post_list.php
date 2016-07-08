@@ -8,9 +8,9 @@
 <?php
 	$conn = get_connection();
 
-	$select_query = 'SELECT id FROM post';
-	$result_set = mysqli_query($conn, $select_query);
-	while ($row=mysqli_fetch_assoc($result_set)) {
+	$select_query = sprintf("SELECT * FROM post WHERE user_id = %s", $user);
+	$result = mysqli_query($conn, $select_query);
+	while ($row = mysqli_fetch_assoc($result)) {
 ?>
 	<?php include "post_view.php"; ?>
 <?php
