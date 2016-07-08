@@ -27,7 +27,7 @@ if (isset($_POST['content'])) {
 	}
 	if ($uploadOk == 0) {
 		echo 'Sorry, your file was not uploaded.';
-	} else 
+	} else {
 		if (move_uploaded_file($_FILES['file']['tmp_name'], $upload_file)) {
 			echo 'The file '.basename($_FILES['file']['name']).' has been uploaded.';
 		} else {
