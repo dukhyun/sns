@@ -87,15 +87,12 @@ article .post div {
 .category_edit ul {
 	height: 40px;
 }
-.category_edit .category_name {
-	width: 150px;
-	padding: 3px 5px;
-}
-category_edit input[type=submit] {
+.category_edit .category_name input[type=submit] {
 	font-size: .8em;
-	padding: 2px 5px;
+	padding: 1px 5px 2px;
+	margin-top: 2px;
 }
-.category_edit input[type=text] {
+.category_edit .category_name input[type=text] {
 	width: 150px;
 	padding: 3px 5px;
 }
