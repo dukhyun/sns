@@ -9,6 +9,10 @@
 <?php
 $root = '.';
 include_once $root.'/../include/header.php';
+
+if (check_login()) {
+	header('Location: /dashboard/');
+}
 ?>
 
 <section class="showlogin">

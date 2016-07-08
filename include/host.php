@@ -62,8 +62,7 @@ function get_category_name($conn, $id) {
 }
 
 // db -> category list
-function get_category_list($conn) {
-	$user_id = get_user_id($conn, $_SESSION['id']);
+function get_category_list($conn, $user_id) {
 	$query = sprintf("SELECT * FROM category WHERE user_id = %d", $user_id);
 	$result = mysqli_query($conn, $query);
 	if ($result === false) {

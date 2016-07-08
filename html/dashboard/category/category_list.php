@@ -10,7 +10,7 @@
 	
 <?php
 	$conn = get_connection();
-	$result = get_category_list($conn);
+	$result = get_category_list($conn, $user);
 ?>
 	<ul>
 		<li>
