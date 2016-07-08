@@ -15,6 +15,7 @@ function get_connection() {
 }
 
 // $_SESSION['id'] = email -> id
+// get_user_id($conn, $_SESSION['id']);
 function get_user_id($conn, $email) {
 	$query = sprintf("SELECT id FROM user WHERE email = '%s'", $email);
 	$result = mysqli_query($conn, $query);

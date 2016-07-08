@@ -22,9 +22,9 @@ $conn = get_connection();
 				<select id="category" name="category">
 					<option value="전체보기">전체보기</option>
 					<?php 
-						$result = get_category_list($conn);
+						$result = get_category_list($conn, get_user_id($conn, $_SESSION['id']));
 							while($row = mysqli_fetch_assoc($result)) {
-							printf("<option value=%s>%s</option>", $row['name'], $row['name']);
+								printf("<option value=%s>%s</option>", $row['name'], $row['name']);
 							}
 					?>
 				</select>
