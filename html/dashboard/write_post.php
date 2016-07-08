@@ -9,6 +9,7 @@
 <?php
 $root = '..';
 include_once $root.'/../include/header.php';
+$conn = get_connection();
 ?>
 
 <div class="form_style center">
@@ -19,9 +20,13 @@ include_once $root.'/../include/header.php';
 				카테고리:
 				<label for="category"></label>
 				<select id="category" name="category">
-					<option value="1">1</option>
-					<option value="2">2</option>
-					<option value="3">3</option>
+					<option value="전체보기">전체보기</option>
+					<?php 
+						$result = get_category_list($conn);
+							while($row = mysqli_fetch_assoc($result)) {
+							printf("<option value=%s>%s</option>", $row['name'], $row['name']);
+							}
+					?>
 				</select>
 			</li>
 			<li>
