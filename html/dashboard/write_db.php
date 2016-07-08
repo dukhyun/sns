@@ -23,9 +23,9 @@ if (isset($_POST['content'])) {
 	// Check file size
 	if ($_FILES['file']['size'] > 5000000) {
 		echo 'Sorry, your file is too large.';
-		$uploadOk = 0;
+		$upload_ok = 0;
 	}
-	if ($uploadOk == 0) {
+	if ($upload_ok == 0) {
 		echo 'Sorry, your file was not uploaded.';
 	} else {
 		if (move_uploaded_file($_FILES['file']['tmp_name'], $upload_file)) {
