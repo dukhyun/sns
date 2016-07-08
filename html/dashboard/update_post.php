@@ -7,12 +7,16 @@
 </head>
 <body>
 <?php
-$root = '..';
-include_once $root.'/../include/header.php';
-$conn = get_connection();
-if ($_SERVER['REQUEST_METHOD'] == 'GET') {
+	$root = '..';
+	include_once $root.'/../include/header.php';
+	if ($_SERVER['REQUEST_METHOD'] == 'GET') {
 		$post_id = $_GET['post_id'];
 	}
+	$conn = get_connection();
+	$select_query = sprintf("SELECT * FROM post WHERE id=%d", $post_id);
+	$result = mysqli_query($conn, $select_query);
+	$row = mysqli_fetch_assoc($result);
+	$last_content = $row['content'];
 ?>
 
 <div class="form_style center">
@@ -35,7 +39,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
 			</li>
 			<li>
 				내용: <br>
-				<textarea type="text" name="content"></textarea>
+				<textarea type="text" name="content"><?php echo $last_content ?></textarea>
 			</li>
 			<li>
 				<input type="submit" value="제출">

@@ -35,6 +35,7 @@ if (isset($_GET['content'])) {
 	echo '내용이 없습니다.';
 	header('Location: update_post.php');
 }
+mysqli_close($conn);
 ?>
 
 <?php // footer ?>

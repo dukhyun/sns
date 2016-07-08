@@ -9,23 +9,29 @@
 <?php
 $root = '..';
 include_once $root.'/../include/header.php';
+if ($_SERVER['REQUEST_METHOD'] == 'GET') {
+	$post_id = $_GET['post_id'];
+}
 ?>
 
 <?php
+	$user_id = get_user_id($conn, $_SESSION['id']);
 	$conn = get_connection();
-	$select_query = "SELECT * FROM post";
+	$select_query = sprintf("SELECT * FROM post WHERE user_id=%s", $user_id);
 	$result = mysqli_query($conn, $select_query);
-	$row = mysqli_fetch_assoc($result);
-	$delete_query = sprintf("DELETE FROM post WHERE id=%s", $row['id']);
-	mysqli_query($conn, $delete_query);
-	if (mysqli_query($db_server, $delete_query) === false){
-		echo mysqli_error($db_server);
+	while ($row = mysqli_fetch_assoc($result)) {
+		if ($post_id == $row['id']) {
+			$delete_query = sprintf("DELETE FROM post WHERE id=%s", $row['id']);
+			if (mysqli_query(mysqli_query($conn, $delete_query)) === false){
+				echo mysqli_error($conn);
+			}
+			else {	
+				echo 'DB DELETE<br>';
+				header("Location: /dashboard/");
+			}
+		}
 	}
-	else {	
-		echo 'DB DELETE<br>';
-		header("Location: /dashboard/");
-	}
-	mysqli_close($db_server);
+	mysqli_close($conn);
 ?>
 
 <?php // footer ?>
