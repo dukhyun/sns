@@ -1,13 +1,13 @@
 <article>
 <?php
 	// post_list 에서 $conn 선언
-	// $post_id = $row['id'];
-	// $query = sprintf("SELECT * FROM post WHERE id = %s", $post_id);
-	// $result = mysqli_query($conn, $query);
-	// if (!$result) {
-		// die ("Database access failed: ".mysqli_error());
-	// }
-	// $post_row = mysqli_fetch_assoc($result);
+	$post_id = $row['id'];
+	//$query = sprintf("SELECT * FROM post WHERE id = %s", $post_id);
+	//$result = mysqli_query($conn, $query);
+	//if (!$result) {
+	//	die ("Database access failed: ".mysqli_error());
+	//}
+	//$post_row = mysqli_fetch_assoc($result);
 	$user_id = $row['user_id'];
 	$nick = get_user_nick($conn, $user_id);
 	$category = get_category_name($conn, $row['category_id']);
@@ -24,8 +24,8 @@
 		if (check_login() === true) {
 			if ($_SESSION['id'] == get_user_email($conn, $user_id)) {
 	?>
-		<a class="floatright" href="/dashboard/delete_db.php">글삭제</a>
-		<a class="floatright" href="/dashboard/update_post.php">글수정</a><br>
+		<a class="floatright" href="/dashboard/delete_db.php?post_id=<?php echo $post_id ?>">글삭제</a>
+		<a class="floatright" href="/dashboard/update_post.php?post_id=<?php echo $post_id ?>">글수정</a><br>
 	<?php
 			}
 		}

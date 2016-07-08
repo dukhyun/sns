@@ -9,21 +9,30 @@
 <?php
 $root = '..';
 include_once $root.'/../include/header.php';
+$conn = get_connection();
+if ($_SERVER['REQUEST_METHOD'] == 'GET') {
+		$post_id = $_GET['post_id'];
+	}
 ?>
 
 <div class="form_style center">
 	<h1>글 수정</h1><br>
-	<form action="update_db.php" method="post">
+	<form action="update_db.php" method="get">
+		<input type="hidden" name="post_id" value="<?php echo $post_id; ?>">
 		<ul>
-			<!--<li>
+			<li>
 				카테고리:
 				<label for="category"></label>
 				<select id="category" name="category">
-					<option value="1">112312313123123</option>
-					<option value="2">2</option>
-					<option value="3">3</option>
+					<option value="0">전체보기</option>
+					<?php 
+						$result = get_category_list($conn, get_user_id($conn, $_SESSION['id']));
+							while($row = mysqli_fetch_assoc($result)) {
+								printf("<option value=%d>%s</option>", $row['id'], $row['name']);
+							}
+					?>
 				</select>
-			</li>-->
+			</li>
 			<li>
 				내용: <br>
 				<textarea type="text" name="content"></textarea>

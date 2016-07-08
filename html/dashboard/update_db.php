@@ -12,14 +12,19 @@ include_once $root.'/../include/header.php';
 ?>
 
 <?php
-if (isset($_POST['content'])) {
-	//$category_id = $_POST['category'];
-	$content = $_POST['content'];
-	
+if (isset($_GET['content'])) {
+	$post_id = $_GET['post_id'];
+	$category_id = $_GET['category'];
+	$content = $_GET['content'];
 	$conn = get_connection();
-	//$category_id = 1;
 	$user_id = get_user_id($conn, $_SESSION['id']);
-	$update_query = sprintf("UPDATE post SET content='%s' WHERE user_id='%d'", $content,  $user_id);
+	
+	
+	if ($category_id == 0) {
+		$update_query = sprintf("UPDATE post SET content='%s', category_id=NULL WHERE id='%d'", $content, $post_id);
+	} else {
+		$update_query = sprintf("UPDATE post SET content='%s', category_id='%d' WHERE id='%d'", $content, $category_id, $post_id);
+	}
 	if (mysqli_query($conn, $update_query) === false) {
 		echo mysqli_error($conn);
 	} else {
