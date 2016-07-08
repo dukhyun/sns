@@ -24,7 +24,7 @@ $conn = get_connection();
 					<?php 
 						$result = get_category_list($conn, get_user_id($conn, $_SESSION['id']));
 							while($row = mysqli_fetch_assoc($result)) {
-								printf("<option value=%s>%s</option>", $row['name'], $row['name']);
+								printf("<option value=%d>%s</option>", $row['id'], $row['name']);
 							}
 					?>
 				</select>
