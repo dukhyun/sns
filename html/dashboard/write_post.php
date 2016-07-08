@@ -13,11 +13,10 @@ include_once $root.'/../include/header.php';
 
 <div class="form_style center">
 	<h1>글 작성</h1>
-	<form action="write_db.php" method="post">
+	<form action="write_db.php" method="post" enctype="multipart/form-data">
 		<ul>
 			<li>
-				카테고리:
-				<label for="category"></label>
+				<label>카테고리:</label>
 				<select id="category" name="category">
 					<option value="0">전체보기</option>
 					<?php 
@@ -29,7 +28,11 @@ include_once $root.'/../include/header.php';
 				</select>
 			</li>
 			<li>
-				내용: <br>
+				<label>사진:</label>
+				<input type="file" name="file" accept="image/*">
+			</li>
+			<li>
+				<label>내용:</label>
 				<textarea type="text" name="content"></textarea>
 			</li>
 			<li>
