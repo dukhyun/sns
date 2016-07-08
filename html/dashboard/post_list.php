@@ -12,7 +12,7 @@
 	$result = mysqli_query($conn, $select_query);
 	while ($row = mysqli_fetch_assoc($result)) {
 ?>
-	<?php include "post_view.php"; ?>
+	<?php include "./post_view.php"; ?>
 <?php
 	}
 ?>
