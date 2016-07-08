@@ -17,6 +17,7 @@
 	$result = mysqli_query($conn, $select_query);
 	$row = mysqli_fetch_assoc($result);
 	$last_content = $row['content'];
+	$category_id = $row['category_id'];
 ?>
 
 <div class="form_style center">
@@ -25,14 +26,17 @@
 		<input type="hidden" name="post_id" value="<?php echo $post_id; ?>">
 		<ul>
 			<li>
-				카테고리:
-				<label for="category"></label>
+				<label for="category">카테고리:</label>
 				<select id="category" name="category">
 					<option value="0">전체보기</option>
 					<?php 
 						$result = get_category_list($conn, get_user_id($conn, $_SESSION['id']));
 							while($row = mysqli_fetch_assoc($result)) {
-								printf("<option value=%d>%s</option>", $row['id'], $row['name']);
+								if ($category_id == $row['id']) {
+									printf("<option vlaue=%s selected=selected>%s</option>", $row['id'], $row['name']);
+								} else {
+									printf("<option value=%d>%s</option>", $row['id'], $row['name']);
+								}
 							}
 					?>
 				</select>

@@ -9,7 +9,6 @@
 <?php
 $root = '..';
 include_once $root.'/../include/header.php';
-$conn = get_connection();
 ?>
 
 <div class="form_style center">
