@@ -6,7 +6,7 @@
 </head>
 <body>
 <?php
-$root = '';
+$root = '.';
 include_once $root.'/../include/header.php';
 
 start_session();
