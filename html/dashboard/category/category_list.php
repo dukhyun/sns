@@ -13,6 +13,9 @@
 	$result = get_category_list($conn);
 ?>
 	<ul>
+		<li>
+			<a href="/dashboard/"><b>전체보기</b></a>
+		</li>
 <?php
 	while ($row = mysqli_fetch_assoc($result)) {
 		printf('<li><a href="/dashboard/index.php?category_id=%d">%s</a></li>', 

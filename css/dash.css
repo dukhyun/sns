@@ -24,6 +24,9 @@
 .widget input[type=submit]:hover {
 	color: red;
 }
+.widget li {
+	font-size: .8em;
+}
 /* section */
 .main {
 	margin-left: 10px;

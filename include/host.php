@@ -25,6 +25,18 @@ function get_user_id($conn, $email) {
 	return $row['id'];
 }
 
+// post(user_id) -> user(email)
+function get_user_email($conn, $user_id) {
+	$query = sprintf("SELECT email FROM user WHERE id = %d", $user_id);
+	$result = mysqli_query($conn, $query);
+	if ($result === false) {
+		die ("Database access failed: ".mysqli_error());
+	}
+	$row = mysqli_fetch_assoc($result);
+	
+	return $row['email'];
+}
+
 // post(user_id) -> user(nick)
 function get_user_nick($conn, $user_id) {
 	$query = sprintf("SELECT nick FROM user WHERE id = %d", $user_id);
