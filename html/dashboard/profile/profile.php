@@ -1,6 +1,6 @@
 <!-- profile //-->
 <div class="widget">
-	<div class="header">
+	<div class="clearfix">
 		<h4 class="floatleft">profile</h4>
 	</div>
 	

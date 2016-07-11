@@ -29,22 +29,97 @@
 .login {
 	width: 300px;
 }
-.login h1 {
+/* form */
+.login h1, .about h1 {
 	font-size: 42px;
 	text-align: center;
 	height: 80px;
 }
-.login input {
+.login li, .about li {
+	margin-top: 5px;
+}
+.login input, .about input {
 	width: 100%;
 	font-size: 16px;
 	color: #666;
 	padding: 14px 10px;
-	margin: 5px 0;
 	border: 0;
 	border-radius: 3px;
 }
-.login input[type=submit] {
+.login input[type=submit], .about input[type=submit] {
 	color: white;
 	/* border: 1px solid #666; */
 	background-color: #529ECC;
+}
+/* about */
+.about {
+	width: 600px;
+	margin: 0 auto;
+}
+.about li, .about .side, .about input {
+	min-height: 30px;
+    flex-direction: row;
+	line-height: 30px;
+}
+.about .side {
+	width: 150px;
+	text-align: right;
+	padding: 0 10px;
+}
+.about input, .about textarea, .about select {
+	width: 300px;
+}
+.about input[type=text] {
+	border: 1px solid #ddd;
+	padding: 0 10px;
+}
+/* filebox */
+.filebox {
+	width: 300px;
+	padding: 0;
+}
+.filebox .file_name {
+	width: 230px;
+	display: inline-block;
+	padding: 0 10px;
+	vertical-align: middle;
+	background-color: #f5f5f5;
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	appearance: none;
+}
+.filebox label {
+	display: inline-block;
+	padding: 0 8px;
+	color: #fff;
+	background-color: #337ab7;
+	cursor: pointer;
+	border: 1px solid #2e6da4;
+	border-radius: 3px;
+}
+.filebox input[type=file] {
+	position: absolute;
+	width: 1px;
+	height: 1px;
+	padding: 0;
+	margin: -1px;
+	overflow: hidden;
+	clip:rect(0,0,0,0);
+	border: 0;
+}
+/* intro */
+.about textarea {
+	min-height: 60px;
+	padding: 10px;
+	border: 1px solid #ddd;
+	resize: vertical;
+}
+/* gender role */
+.about select {
+	height: 30px;
+	padding: 0 10px;
+	border: 1px solid #ddd;
+	border-radius: 3px;
 }

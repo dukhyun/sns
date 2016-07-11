@@ -1,6 +1,6 @@
 <!-- category //-->
 <div class="widget">
-	<div class="header">
+	<div class="clearfix">
 		<h4 class="floatleft">category</h4>
 	<?php
 		$conn = get_connection();
@@ -8,7 +8,7 @@
 			if ($_SESSION['id'] == get_user_email($conn, $user)) {
 	?>
 		<form class="floatright" action="category/category_edit.php" method="post">
-			<input type="submit" value="수정">
+			<input type="submit" value="관리">
 		</form>
 	<?php
 			}

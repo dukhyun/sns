@@ -11,6 +11,8 @@ li { list-style: none; }
 .fix { overflow: hidden; }
 .floatleft { float: left; }
 .floatright { float: right; }
+.clearfix:before, .clearfix:after { content: " "; display: block; }
+.clearfix:after { clear: both; }
 .clearboth { clear: both; }
 .center { margin: 0 auto; }
 .content { width: 100%; padding-top: 10px; min-height: 100px; }

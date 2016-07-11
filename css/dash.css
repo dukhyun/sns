@@ -1,4 +1,4 @@
-/* aside */
+/* side */
 .side {
 	width: 170px;
 	height: 300px;
@@ -13,9 +13,6 @@
 	border-radius: 3px;
 	margin-bottom: 10px;
 	background-color: lightgreen;
-}
-.widget .header {
-	height: 30px;
 }
 .widget input[type=submit] {
 	padding: 2px;
@@ -51,11 +48,16 @@ article {
 article .post {
 	width: 600px;
 	padding: 10px;
-	border: 1px solid #eee;
+	border: 1px solid #ddd;
 	border-radius: 3px;
 }
-article .post div {
-	height: 24px;
+.post .head {
+	padding-bottom: 5px;
+	border-bottom: 1px solid #ddd;
+}
+.post .head a {
+	font-size: .8em;
+	margin-left: 4px;
 }
 /* form */
 .form_style {

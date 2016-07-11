@@ -21,9 +21,9 @@ include_once $root.'/../include/header.php';
 					<option value="0">전체보기</option>
 					<?php 
 						$result = get_category_list($conn, get_user_id($conn, $_SESSION['id']));
-							while($row = mysqli_fetch_assoc($result)) {
-								printf("<option value=%d>%s</option>", $row['id'], $row['name']);
-							}
+						while($row = mysqli_fetch_assoc($result)) {
+							printf('<option value="%d">%s</option>', $row['id'], $row['name']);
+						}
 					?>
 				</select>
 			</li>

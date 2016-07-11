@@ -29,7 +29,7 @@ include_once $root.'/../include/header.php';
 					<input type="submit" value="register">
 				</li>
 			</ul>
-		</form>		
+		</form>
 	</div>
 </section>
 	

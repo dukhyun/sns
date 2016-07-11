@@ -31,13 +31,13 @@
 					<option value="0">전체보기</option>
 					<?php 
 						$result = get_category_list($conn, get_user_id($conn, $_SESSION['id']));
-							while($row = mysqli_fetch_assoc($result)) {
-								if ($category_id == $row['id']) {
-									printf("<option vlaue=%s selected=selected>%s</option>", $row['id'], $row['name']);
-								} else {
-									printf("<option value=%d>%s</option>", $row['id'], $row['name']);
-								}
+						while($row = mysqli_fetch_assoc($result)) {
+							if ($category_id == $row['id']) {
+								printf('<option vlaue="%d" selected="selected">%s</option>', $row['id'], $row['name']);
+							} else {
+								printf('<option value="%d">%s</option>', $row['id'], $row['name']);
 							}
+						}
 					?>
 				</select>
 			</li>
