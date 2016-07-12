@@ -62,6 +62,29 @@ function get_category_name($conn, $id) {
 	return $row['name'];
 }
 
+// user(gender_id) -> gender(gender)
+function get_gender_type($conn, $id) {
+	$query = sprintf("SELECT * FROM gender WHERE id = %d", $id);
+	$result = mysqli_query($conn, $query);
+	if ($result === false) {
+		die ("Database access failed: ".mysqli_error());
+	}
+	$row = mysqli_fetch_assoc($result);
+	
+	return $row['gender'];
+}
+
+// db -> my user profile
+function get_user_profile($conn, $user_id) {
+	$query = sprintf("SELECT * FROM user WHERE id = %d", $user_id);
+	$result = mysqli_query($conn, $query);
+	if ($result === false) {
+		die ("Database access failed: ".mysqli_error());
+	}
+	
+	return $result;
+}
+
 // db -> category list
 function get_category_list($conn, $user_id) {
 	$query = sprintf("SELECT * FROM category WHERE user_id = %d", $user_id);

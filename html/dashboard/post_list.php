@@ -12,7 +12,7 @@
 		$select_query = sprintf("SELECT * FROM post 
 			WHERE user_id = %d AND category_id = %d", $user, $category_id);
 	} else {
-		$select_query = sprintf("SELECT * FROM post WHERE user_id = %d", $user);
+		$select_query = sprintf("SELECT * FROM post WHERE user_id = %d ORDER BY date DESC", $user);
 	}
 
 	$result = mysqli_query($conn, $select_query);
