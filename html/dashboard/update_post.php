@@ -42,6 +42,21 @@
 				</select>
 			</li>
 			<li>
+				<label>사진:</label>
+				<input type="file" name="file" accept="image/*" onchange="previewFile(event);">
+				<img id="output">
+				<script>
+				var previewFile = function(event) {
+					var reader = new FileReader();
+					reader.onload = function() {
+						var output = document.getElementById('output');
+						output.src = reader.result;
+					};
+					reader.readAsDataURL(event.target.files[0]);
+				};
+				</script>
+			</li>
+			<li>
 				내용: <br>
 				<textarea type="text" name="content"><?php echo $last_content ?></textarea>
 			</li>
