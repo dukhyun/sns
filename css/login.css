@@ -110,6 +110,10 @@
 	clip: rect(0,0,0,0);
 	border: 0;
 }
+.filebox #output {
+	max-width: 300px;
+	max-height: 180px;
+}
 /* intro */
 .about textarea {
 	min-height: 60px;

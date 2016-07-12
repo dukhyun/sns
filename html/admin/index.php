@@ -37,11 +37,28 @@ include_once $root.'/../include/header.php';
 				<li class="clearfix">
 					<div class="side floatleft">프로필 사진</div>
 					<div class="floatleft filebox">
-						<input class="floatleft" id="file_name" value="파일 선택" disabled="disabled">
-						<label class="floatright" for="input_file">업로드</label>
-						<input type="file" id="input_file" name="picture" accept="image/*" onchange="javascript: document.getElementById('file_name').value = this.value">
+						<div class="clearfix">
+							<input class="floatleft" id="file_name" value="파일 선택" disabled="disabled">
+							<label class="floatright" for="input_file">업로드</label>
+							<input type="file" id="input_file" name="picture" accept="image/*" onchange="previewFile(event); document.getElementById('file_name').value = this.value;">
+						</div>
+						<img id="output">
+						<script>
+						var previewFile = function(event) {
+							// var file = new File();
+							// file.onload = function() {
+								// var name = document.getElementById('file_name');
+								// name.value = file.name;
+							// };
+							var reader = new FileReader();
+							reader.onload = function() {
+								var output = document.getElementById('output');
+								output.src = reader.result;
+							};
+							reader.readAsDataURL(event.target.files[0]);
+						};
+						</script>
 					</div>
-				</li>
 				<li class="clearfix">
 					<div class="side floatleft">소개</div>
 					<textarea class="floatleft" name="intro" value="<?php echo $intro ?>"></textarea>
