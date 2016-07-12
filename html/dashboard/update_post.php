@@ -22,7 +22,7 @@
 
 <div class="form_style center">
 	<h1>글 수정</h1><br>
-	<form action="update_db.php" method="get">
+	<form action="update_db.php" method="post" enctype="multipart/form-data">
 		<input type="hidden" name="post_id" value="<?php echo $post_id; ?>">
 		<ul>
 			<li>

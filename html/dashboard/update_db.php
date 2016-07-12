@@ -12,10 +12,10 @@ include_once $root.'/../include/header.php';
 ?>
 
 <?php
-if (isset($_GET['content'])) {
-	$post_id = $_GET['post_id'];
-	$category_id = $_GET['category'];
-	$content = $_GET['content'];
+if (isset($_POST['content'])) {
+	$post_id = $_POST['post_id'];
+	$category_id = $_POST['category'];
+	$content = $_POST['content'];
 	
 	$conn = get_connection();
 	$user_id = get_user_id($conn, $_SESSION['id']);
@@ -45,9 +45,9 @@ if (isset($_GET['content'])) {
 	
 	// update db
 	if ($category_id == 0) {
-		$update_query = sprintf("UPDATE post SET image='%s', content='%s', category_id=NULL WHERE id='%d'", $upload_file, $content, $post_id);
+		$update_query = sprintf("UPDATE post SET image='%s', content='%s', category_id=NULL WHERE id=%d", $upload_file, $content, $post_id);
 	} else {
-		$update_query = sprintf("UPDATE post SET image='%s', content='%s', category_id='%d' WHERE id='%d'", $upload_file, $content, $category_id, $post_id);
+		$update_query = sprintf("UPDATE post SET image='%s', content='%s', category_id='%d' WHERE id=%d", $upload_file, $content, $category_id, $post_id);
 	}
 	if (mysqli_query($conn, $update_query) === false) {
 		echo mysqli_error($conn);
