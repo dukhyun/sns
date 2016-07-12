@@ -6,6 +6,7 @@
 	$category = get_category_name($conn, $row['category_id']);
 	$content = $row['content'];
 	$date = time_set($row['date']);
+	$image  = $row['image'];
 ?>
 	<div class="post">
 	
@@ -27,7 +28,8 @@
 		}
 	?>
 		</div>
-	
+		
+		<img src="<?php echo $image; ?>">
 		<p><?php echo $date; ?></p>
 		<p><?php echo $category; ?></p>
 		<p><?php echo $content; ?></p>

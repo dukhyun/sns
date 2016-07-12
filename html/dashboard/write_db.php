@@ -22,8 +22,8 @@ if (isset($_POST['content'])) {
 	// upload file
 	$upload_dir = $root.'/../file/';
 	//$upload_file = $upload_dir.basename($_FILES['file']['name']);
-	$file_name = explode(".", $_FILES['file']['name']);
-	$ext = strtoupper($file_name[sizeof($file_name) - 1]);
+	$path = pathinfo($_FILES['file']['name']);
+	$ext = strtolower($path['extension']);
 	$upload_fn = $user_id.'_'.time();
 	$upload_file = $upload_dir.$upload_fn.'.'.$ext;
 	$upload_ok = 1;
@@ -44,12 +44,11 @@ if (isset($_POST['content'])) {
 	
 	// insert db
 	if ($category_id == 0) {
-		$insert_query = sprintf("INSERT INTO post (content, user_id)
-				VALUES ('%s', '%d')", $content, $user_id);
+		$insert_query = sprintf("INSERT INTO post (image, content, user_id)
+				VALUES ('%s', '%s', '%d')", $upload_file, $content, $user_id);
 	} else {
-		$insert_query = sprintf("INSERT INTO post (content, category_id, user_id)
-				VALUES ('%s', '%d', '%d')", $content, $category_id, $user_id);
-		
+		$insert_query = sprintf("INSERT INTO post (image, content, category_id, user_id)
+				VALUES ('%s', '%s', '%d', '%d')", $upload_file, $content, $category_id, $user_id);
 	}
 	if (mysqli_query($conn, $insert_query) === false) {
 		echo mysqli_error($conn);

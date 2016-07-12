@@ -67,6 +67,10 @@ article .post {
 	font-size: .8em;
 	margin-left: 4px;
 }
+.post img {
+	margin-top: 10px;
+	max-width: 100%;
+}
 /* form */
 .form_style {
 	width: 500px;
