@@ -74,6 +74,9 @@ article .post {
 .form_style li {
 	margin-top: 10px;
 }
+.form_style #output {
+	max-width: 100%;
+}
 .form_style select {
 	min-width: 50px;
 	max-width: 100%;

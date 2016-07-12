@@ -26,7 +26,7 @@
 		<input type="hidden" name="post_id" value="<?php echo $post_id; ?>">
 		<ul>
 			<li>
-				<label for="category">카테고리:</label>
+				<label>카테고리:</label>
 				<select id="category" name="category">
 					<option value="0">전체보기</option>
 					<?php 

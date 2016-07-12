@@ -16,9 +16,16 @@ if (isset($_POST['content'])) {
 	$category_id = $_POST['category'];
 	$content = $_POST['content'];
 	
+	$conn = get_connection();
+	$user_id = get_user_id($conn, $_SESSION['id']);
+	
 	// upload file
 	$upload_dir = $root.'/../file/';
-	$upload_file = $upload_dir.basename($_FILES['file']['name']);
+	//$upload_file = $upload_dir.basename($_FILES['file']['name']);
+	$file_name = explode(".", $_FILES['file']['name']);
+	$ext = strtoupper($file_name[sizeof($file_name) - 1]);
+	$upload_fn = $user_id.'_'.time();
+	$upload_file = $upload_dir.$upload_fn.'.'.$ext;
 	$upload_ok = 1;
 	// Check file size
 	if ($_FILES['file']['size'] > 5000000) {
@@ -35,8 +42,7 @@ if (isset($_POST['content'])) {
 		}
 	}
 	
-	$conn = get_connection();
-	$user_id = get_user_id($conn, $_SESSION['id']);
+	// insert db
 	if ($category_id == 0) {
 		$insert_query = sprintf("INSERT INTO post (content, user_id)
 				VALUES ('%s', '%d')", $content, $user_id);
