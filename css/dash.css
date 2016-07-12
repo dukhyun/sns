@@ -51,9 +51,17 @@ article .post {
 	border: 1px solid #ddd;
 	border-radius: 3px;
 }
+.post .head h3, .post .head .friend, .post .head a {
+	line-height: 30px;
+}
 .post .head {
 	padding-bottom: 5px;
 	border-bottom: 1px solid #ddd;
+}
+.post .head .friend {
+	padding-left: 10px;
+	border-left: 1px solid #ddd;
+	margin-left: 10px;
 }
 .post .head a {
 	font-size: .8em;

@@ -11,6 +11,7 @@
 	
 		<div class="head clearfix">
 			<h3 class="floatleft"><?php echo $nick; ?></h3>
+			<a class="friend floatleft" href="/dashboard/friend_db.php">친구추가</a>
 	<?php // admin
 		if (check_login() === true) {
 			if ($_SESSION['id'] == get_user_email($conn, $user_id)) {
