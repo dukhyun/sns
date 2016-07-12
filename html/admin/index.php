@@ -20,11 +20,13 @@ include_once $root.'/../include/header.php';
 			$id = get_user_id($conn, $email);
 			$result = get_user_profile($conn, $id);
 			$row = mysqli_fetch_assoc($result);
+			
 			$nick = $row['nick'];
 			$intro = $row['intro'];
 			$gender = get_gender_type($conn, $row['gender_id']);
+			$picture = $row['picture'];
 		?>
-		<form action="admin_db.php" method="POST">
+		<form action="admin_db.php" method="post" enctype="multipart/form-data">
 			<ul>
 				<li class="clearfix">
 					<div class="side floatleft">E-mail</div>
@@ -40,16 +42,11 @@ include_once $root.'/../include/header.php';
 						<div class="clearfix">
 							<input class="floatleft" id="file_name" value="파일 선택" disabled="disabled">
 							<label class="floatright" for="input_file">업로드</label>
-							<input type="file" id="input_file" name="picture" accept="image/*" onchange="previewFile(event); document.getElementById('file_name').value = this.value;">
+							<input type="file" id="input_file" name="file" accept="image/*" onchange="previewFile(event); document.getElementById('file_name').value = this.value;">
 						</div>
-						<img id="output">
+						<img id="output" src="<?php echo $picture; ?>">
 						<script>
 						var previewFile = function(event) {
-							// var file = new File();
-							// file.onload = function() {
-								// var name = document.getElementById('file_name');
-								// name.value = file.name;
-							// };
 							var reader = new FileReader();
 							reader.onload = function() {
 								var output = document.getElementById('output');

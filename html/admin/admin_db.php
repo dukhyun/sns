@@ -17,7 +17,7 @@
 	$path = pathinfo($_FILES['file']['name']);
 	$ext = strtolower($path['extension']);
 	$upload_file = $upload_dir.$user_id.'.'.$ext;
-	
+	$upload_ok = 1;
 	if ($_FILES['file']['size'] > 5000000) {
 		echo 'Sorry, your file is too large.';
 		$upload_ok = 0;
@@ -47,7 +47,7 @@
 		echo mysqli_error($conn);
 	} else {
 		echo 'DB UPDATE<br>';
-		//header("Location: ");
+		header("Location: /");
 	}
 ?>
 
