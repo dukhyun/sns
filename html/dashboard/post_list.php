@@ -10,7 +10,7 @@
 	if (isset($_GET['category_id'])) {
 		$category_id = $_GET['category_id'];
 		$select_query = sprintf("SELECT * FROM post 
-			WHERE user_id = %d AND category_id = %d", $user, $category_id);
+			WHERE user_id = %d AND category_id = %d ORDER BY date DESC", $user, $category_id);
 	} else {
 		$select_query = sprintf("SELECT * FROM post WHERE user_id = %d ORDER BY date DESC", $user);
 	}
