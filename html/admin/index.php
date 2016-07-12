@@ -24,7 +24,7 @@ include_once $root.'/../include/header.php';
 			$intro = $row['intro'];
 			$gender = get_gender_type($conn, $row['gender_id']);
 		?>
-		<form action="about_db.php" method="POST">
+		<form action="admin_db.php" method="POST">
 			<ul>
 				<li class="clearfix">
 					<div class="side floatleft">E-mail</div>
@@ -61,7 +61,7 @@ include_once $root.'/../include/header.php';
 					</div>
 				<li class="clearfix">
 					<div class="side floatleft">소개</div>
-					<textarea class="floatleft" name="intro" value="<?php echo $intro ?>"></textarea>
+					<textarea class="floatleft" name="intro"><?php echo $intro ?></textarea>
 				</li>
 				<li class="clearfix">
 					<div class="side floatleft">성별</div>
@@ -78,9 +78,9 @@ include_once $root.'/../include/header.php';
 								}
 							}
 							if ($gender == NULL) {
-								printf('<option value="%d" selected>%s</option>', NULL, 선택안함);
+								printf('<option value="0" selected>%s</option>', 선택안함);
 							} else {
-								printf('<option value="%d">%s</option>', NULL, 선택안함);
+								printf('<option value="0">%s</option>', 선택안함);
 							}
 						?>
 						</select>
