@@ -17,10 +17,15 @@
 		printf('<a class="op floatleft" href="/dashboard/?user=%d&category_id=%d">%s</a>', $user_id, $category_id, $category);
 		// admin
 		if (check_login() === true) {
-			if ($_SESSION['id'] !== get_user_email($conn, $user_id)) { 
-	?>
+			if ($_SESSION['id'] !== get_user_email($conn, $user_id)) {
+				$select_query = sprintf("SELECT * FROM friend WHERE user_id=%d", get_user_id($conn, $_SESSION['id']));
+				$result2 = mysqli_query($conn, $select_query);
+				$row2 = mysqli_fetch_assoc($result2);
+				if ($user_id !== $row2['friend_id']) {
+	?>			
 				<a class="floatright" href="/dashboard/friend/friend_db.php?id=<?php echo $user_id?>">친구추가</a>
 	<?php
+				}
 			}
 			if ($_SESSION['id'] == get_user_email($conn, $user_id)) {
 	?>
