@@ -22,14 +22,15 @@ if (isset($_POST['content'])) {
 	
 	// upload file
 	if ($_FILES['file']['name'] != NULL) {
-		$upload_file_name = file_upload($root, $post_id);
+		$file_name = $post_id.'_'.time();
+		$upload_file_name = file_upload($root, $file_name);
 	} else {
 		$upload_file_name = 0;
 	}
 	
 	// update db
 	$update_query = sprintf("UPDATE post SET content='%s'", $content);
-	if ($$upload_file_name != 0) { // image
+	if ($upload_file_name != 0) { // image
 		$update_query .= sprintf(", image='%s'", $upload_file_name);
 	}
 	if ($category_id == 0) { // category_id

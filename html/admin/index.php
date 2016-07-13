@@ -24,7 +24,11 @@ include_once $root.'/../include/header.php';
 			$nick = $row['nick'];
 			$intro = $row['intro'];
 			$gender = get_gender_type($conn, $row['gender_id']);
-			$picture = $row['picture'];
+			if ($row['picture'] == NULL) {
+				$picture = NULL;
+			} else {
+				$picture = '/file/'.$row['picture'];
+			}
 		?>
 		<form action="admin_db.php" method="post" enctype="multipart/form-data">
 			<ul>

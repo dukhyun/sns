@@ -18,6 +18,11 @@
 	$row = mysqli_fetch_assoc($result);
 	$last_content = $row['content'];
 	$category_id = $row['category_id'];
+	if ($row['image'] == NULL) {
+		$image = NULL;
+	} else {
+		$image = '/file/'.$row['image'];
+	}
 ?>
 
 <div class="form_style center">
@@ -44,7 +49,7 @@
 			<li>
 				<label>사진:</label>
 				<input type="file" name="file" accept="image/*" onchange="previewFile(event);">
-				<img id="output">
+				<img id="output" src="<?php echo $image; ?>">
 				<script>
 				var previewFile = function(event) {
 					var reader = new FileReader();

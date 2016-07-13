@@ -35,7 +35,8 @@ if (isset($_POST['content'])) {
 		echo 'post_id:'.$post_id.'<br>';
 		// image upload
 		if ($_FILES['file']['name'] != NULL) {
-			$image = file_upload($root, $post_id);
+			$file_name = $post_id.'_'.time();
+			$image = file_upload($root, $file_name);
 			$update_query = sprintf("UPDATE post SET image='%s' WHERE id=%d", $image, $post_id);
 			if (mysqli_query($conn, $update_query) === false) {
 				echo mysqli_error($conn);

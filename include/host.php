@@ -184,12 +184,12 @@ function check_user_account($id, $password) {
 }
 
 // file upload
-function file_upload($root, $post_id) {
+function file_upload($root, $file_name) {
 	// upload file
 	$upload_dir = $root.'/../file/';
 	$path = pathinfo($_FILES['file']['name']);
 	$ext = strtolower($path['extension']);
-	$upload_file_name = $post_id.'_'.time().'.'.$ext;
+	$upload_file_name = $file_name.'.'.$ext;
 	$upload_file = $upload_dir.$upload_file_name;
 	$upload_ok = 1;
 	// Check file size
