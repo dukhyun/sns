@@ -16,7 +16,7 @@
 		if (check_login() === true) {
 			if ($_SESSION['id'] !== get_user_email($conn, $user_id)) { 
 	?>
-				<a class="friend floatleft" href="/dashboard/friend_db.php?id=<?php echo $user_id?>">친구추가</a>	
+				<a class="friend floatleft" href="/dashboard/friend/friend_db.php?id=<?php echo $user_id?>">친구추가</a>	
 	<?php
 			}
 			if ($_SESSION['id'] == get_user_email($conn, $user_id)) {
