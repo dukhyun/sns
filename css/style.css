@@ -17,3 +17,4 @@ li { list-style: none; }
 .center { margin: 0 auto; }
 .content { width: 100%; padding-top: 10px; min-height: 100px; }
 form input { border: 1px solid #aaa; }
+form input[type=submit] { cursor: pointer; }
