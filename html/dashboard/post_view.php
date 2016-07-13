@@ -29,7 +29,13 @@
 	?>
 		</div>
 		
+		<?php
+			if ($image != NULL) {
+		?>
 		<img src="/file/<?php echo $image; ?>">
+		<?php
+			}
+		?>
 		<p><?php echo $date; ?></p>
 		<p><?php echo $category; ?></p>
 		<p><?php echo $content; ?></p>
