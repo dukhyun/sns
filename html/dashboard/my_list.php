@@ -2,6 +2,7 @@
 	<!-- action //-->
 	<div class="action">
 		<a class="floatleft" href="/dashboard/write_post.php">글작성</a>
+		<a class="floatleft" href="/dashboard/friend/friend_list.php">친구관리</a>
 	</div>
 	
 	<!-- post list //-->
