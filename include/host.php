@@ -182,4 +182,31 @@ function check_user_account($id, $password) {
 	mysqli_free_result($result);
 	mysqli_close($conn);
 }
+
+// file upload
+function file_upload($root, $post_id) {
+	// upload file
+	$upload_dir = $root.'/../file/';
+	$path = pathinfo($_FILES['file']['name']);
+	$ext = strtolower($path['extension']);
+	$upload_file_name = $post_id.'_'.time().'.'.$ext;
+	$upload_file = $upload_dir.$upload_file_name;
+	$upload_ok = 1;
+	// Check file size
+	if ($_FILES['file']['size'] > 5000000) {
+		echo 'Sorry, your file is too large.';
+		$upload_ok = 0;
+	}
+	if ($upload_ok == 0) {
+		echo 'Sorry, your file was not uploaded.';
+	} else {
+		if (move_uploaded_file($_FILES['file']['tmp_name'], $upload_file)) {
+			echo 'The file '.basename($_FILES['file']['name']).' has been uploaded.';
+		} else {
+			echo 'Sorry, there was an error uploading your file.';
+		}
+	}
+	
+	return $upload_file_name;
+}
 ?>

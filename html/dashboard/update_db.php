@@ -21,31 +21,18 @@ if (isset($_POST['content'])) {
 	$user_id = get_user_id($conn, $_SESSION['id']);
 	
 	// upload file
-	$upload_dir = $root.'/../file/';
-	$path = pathinfo($_FILES['file']['name']);
-	$ext = strtolower($path['extension']);
-	$upload_fn = $user_id.'_'.time();
-	$upload_file = $upload_dir.$upload_fn.'.'.$ext;
-	$upload_ok = 1;
-	// Check file size
-	if ($_FILES['file']['size'] > 5000000) {
-		echo 'Sorry, your file is too large.';
-		$upload_ok = 0;
-	}
-	if ($upload_ok == 0) {
-		echo 'Sorry, your file was not uploaded.';
+	if ($_FILES['file']['name'] != NULL) {
+		$upload_file_name = file_upload($root, $post_id);
 	} else {
-		if (move_uploaded_file($_FILES['file']['tmp_name'], $upload_file)) {
-			echo 'The file '.basename($_FILES['file']['name']).' has been uploaded.';
-		} else {
-			echo 'Sorry, there was an error uploading your file.';
-		}
+		$upload_file_name = 0;
 	}
 	
 	// update db
 	$update_query = sprintf("UPDATE post SET content='%s'", $content);
-	$update_query .= sprintf(", image='%s'", $upload_fn);
-	if ($category_id == 0) {
+	if ($$upload_file_name != 0) { // image
+		$update_query .= sprintf(", image='%s'", $upload_file_name);
+	}
+	if ($category_id == 0) { // category_id
 		$update_query .= sprintf(", category_id=NULL");
 	} else {
 		$update_query .= sprintf(", category_id=%d", $category_id);

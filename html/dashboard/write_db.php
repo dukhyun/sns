@@ -19,41 +19,30 @@ if (isset($_POST['content'])) {
 	$conn = get_connection();
 	$user_id = get_user_id($conn, $_SESSION['id']);
 	
-	// upload file
-	$upload_dir = $root.'/../file/';
-	//$upload_file = $upload_dir.basename($_FILES['file']['name']);
-	$path = pathinfo($_FILES['file']['name']);
-	$ext = strtolower($path['extension']);
-	$upload_fn = $user_id.'_'.time();
-	$upload_file = $upload_dir.$upload_fn.'.'.$ext;
-	$upload_ok = 1;
-	// Check file size
-	if ($_FILES['file']['size'] > 5000000) {
-		echo 'Sorry, your file is too large.';
-		$upload_ok = 0;
-	}
-	if ($upload_ok == 0) {
-		echo 'Sorry, your file was not uploaded.';
-	} else {
-		if (move_uploaded_file($_FILES['file']['tmp_name'], $upload_file)) {
-			echo 'The file '.basename($_FILES['file']['name']).' has been uploaded.';
-		} else {
-			echo 'Sorry, there was an error uploading your file.';
-		}
-	}
-	
 	// insert db
 	if ($category_id == 0) {
-		$insert_query = sprintf("INSERT INTO post (image, content, user_id)
-				VALUES ('%s', '%s', '%d')", $upload_file, $content, $user_id);
+		$insert_query = sprintf("INSERT INTO post (content, user_id)
+				VALUES ('%s', '%d')", $content, $user_id);
 	} else {
-		$insert_query = sprintf("INSERT INTO post (image, content, category_id, user_id)
-				VALUES ('%s', '%s', '%d', '%d')", $upload_file, $content, $category_id, $user_id);
+		$insert_query = sprintf("INSERT INTO post (content, category_id, user_id)
+				VALUES ('%s', '%d', '%d')", $content, $category_id, $user_id);
 	}
 	if (mysqli_query($conn, $insert_query) === false) {
 		echo mysqli_error($conn);
 	} else {
 		echo 'DB INSERT<br>';
+		$post_id = mysqli_insert_id($conn);
+		echo 'post_id:'.$post_id.'<br>';
+		// image upload
+		if ($_FILES['file']['name'] != NULL) {
+			$image = file_upload($root, $post_id);
+			$update_query = sprintf("UPDATE post SET image='%s' WHERE id=%d", $image, $post_id);
+			if (mysqli_query($conn, $update_query) === false) {
+				echo mysqli_error($conn);
+			}
+		} else {
+			echo 'false';
+		}
 		header("Location: /dashboard/");
 	}
 } else {
