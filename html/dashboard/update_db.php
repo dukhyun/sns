@@ -22,7 +22,6 @@ if (isset($_POST['content'])) {
 	
 	// upload file
 	$upload_dir = $root.'/../file/';
-	//$upload_file = $upload_dir.basename($_FILES['file']['name']);
 	$path = pathinfo($_FILES['file']['name']);
 	$ext = strtolower($path['extension']);
 	$upload_fn = $user_id.'_'.time();
@@ -44,11 +43,15 @@ if (isset($_POST['content'])) {
 	}
 	
 	// update db
+	$update_query = sprintf("UPDATE post SET content='%s'", $content);
+	$update_query .= sprintf(", image='%s'", $upload_fn);
 	if ($category_id == 0) {
-		$update_query = sprintf("UPDATE post SET image='%s', content='%s', category_id=NULL WHERE id=%d", $upload_file, $content, $post_id);
+		$update_query .= sprintf(", category_id=NULL");
 	} else {
-		$update_query = sprintf("UPDATE post SET image='%s', content='%s', category_id='%d' WHERE id=%d", $upload_file, $content, $category_id, $post_id);
+		$update_query .= sprintf(", category_id=%d", $category_id);
 	}
+	$update_query .= sprintf(" WHERE id=%d", $post_id);
+	
 	if (mysqli_query($conn, $update_query) === false) {
 		echo mysqli_error($conn);
 	} else {

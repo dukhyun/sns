@@ -29,7 +29,7 @@
 	?>
 		</div>
 		
-		<img src="<?php echo $image; ?>">
+		<img src="/file/<?php echo $image; ?>">
 		<p><?php echo $date; ?></p>
 		<p><?php echo $category; ?></p>
 		<p><?php echo $content; ?></p>
