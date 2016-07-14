@@ -17,6 +17,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
 <?php
 	$user_id = get_user_id($conn, $_SESSION['id']);
 	$conn = get_connection();
+	$delete_comment_qury = sprintf("DELETE FROM comment WHERE post_id=%d", $post_id);
+	mysqli_query($conn, $delete_comment_qury);
 	$select_query = sprintf("SELECT * FROM post WHERE user_id=%s", $user_id);
 	$result = mysqli_query($conn, $select_query);
 	while ($row = mysqli_fetch_assoc($result)) {
