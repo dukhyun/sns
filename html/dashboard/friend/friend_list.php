@@ -43,8 +43,13 @@
 ?>
 	</div>
 	<div class="list center">
-		<h1>친구검색</h1>
+		<h1>유저검색</h1>
+		<form action="friend_search.php" method="post">
+			<input type="text" name="nick">
+			<input type="submit" value="검색">
+		</form>
 	</div>
+	
 </div>
 
 <?php // footer ?>
