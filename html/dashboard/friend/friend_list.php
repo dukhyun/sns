@@ -28,7 +28,7 @@
 			<li class="floatleft">
 		<?php
 			$friend_id = $row['friend_id'];
-			printf('<a href="dashboard/?user=%d">%s</a>', $friend_id, get_user_nick($conn, $friend_id));
+			printf('<a href="/dashboard/?user=%d">%s</a>', $friend_id, get_user_nick($conn, $friend_id));
 		?>
 			</li>
 			<li class="floatright">

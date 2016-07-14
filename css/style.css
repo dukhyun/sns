@@ -15,6 +15,6 @@ li { list-style: none; }
 .clearfix:after { clear: both; }
 .clearboth { clear: both; }
 .center { margin: 0 auto; }
-.content { width: 100%; padding-top: 10px; min-height: 100px; }
+.content { width: 100%; padding-top: 10px; padding-bottom: 10px; min-height: 100px; }
 form input { border: 1px solid #aaa; }
 form input[type=submit] { cursor: pointer; }
