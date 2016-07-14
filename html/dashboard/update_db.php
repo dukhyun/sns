@@ -20,12 +20,27 @@ if (isset($_POST['content'])) {
 	$conn = get_connection();
 	$user_id = get_user_id($conn, $_SESSION['id']);
 	
+	// file check
+	$path = pathinfo($_FILES['file']['name']);
+	$ext = strtolower($path['extension']);
+	$upload_ok = 1;
+	// Allow certain file formats
+	if ($ext != 'gif' && $ext != 'jpg' && $ext != 'jpeg' && $ext != 'png') {
+		echo "Sorry, only JPG, JPEG, PNG & GIF files are allowed.";
+		$upload_ok = 0;
+	}
+	// Check file size
+	if ($_FILES['file']['size'] > 5000000) {
+		echo 'Sorry, your file is too large.';
+		$upload_ok = 0;
+	}
 	// upload file
-	if ($_FILES['file']['name'] != NULL) {
+	if ($upload_ok == 0) {
+		echo 'Sorry, your file was not uploaded.';
+		$upload_file_name = 0;
+	} else {
 		$file_name = $post_id.'_'.time();
 		$upload_file_name = file_upload($root, $file_name);
-	} else {
-		$upload_file_name = 0;
 	}
 	
 	// update db

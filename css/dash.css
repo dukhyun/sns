@@ -9,7 +9,7 @@
 	border: 1px solid #ddd;
 	border-radius: 3px;
 	margin-bottom: 10px;
-	background-color: lightgreen;
+	background-color: LightBlue;
 }
 .widget input[type=submit] {
 	padding: 2px;
@@ -21,6 +21,18 @@
 }
 .widget li {
 	font-size: .8em;
+}
+.widget .nick {
+	font-size: 1em;
+}
+.widget .email {
+	font-size: .8em;
+	color: #810;
+}
+.widget img {
+	width: 130px;
+	height: 130px;
+	border-radius: 50%;
 }
 /* section */
 .main {

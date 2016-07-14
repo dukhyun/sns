@@ -12,14 +12,21 @@ include_once $root.'/../include/header.php';
 ?>
 
 <?php
+$conn = get_connection();
 // 보여줄 user_id 값 받아오기
 if (isset($_GET['user'])) {
 	$user = $_GET['user'];
-	include_once './sidebar.php';
-	include_once './post_list.php';
+	// user id 존재 여부 확인
+	$count = search_count($conn, 'user', 'id='.$user);
+	if ($count == 0) {
+		echo '존재하지 않는 회원의 대시보드입니다.';
+		header("Location: /dashboard/");
+	} else {
+		include_once './sidebar.php';
+		include_once './post_list.php';
+	}
 } else {
 	// ?user 값이 없을 경우 자기자신을 보여준다
-	$conn = get_connection();
 	$user = get_user_id($conn, $_SESSION['id']);
 	
 	// ?user 값이 없을 경우

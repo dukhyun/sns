@@ -46,17 +46,34 @@ include_once $root.'/../include/header.php';
 						<div class="clearfix">
 							<input class="floatleft" id="file_name" value="파일 선택" disabled="disabled">
 							<label class="floatright" for="input_file">업로드</label>
-							<input type="file" id="input_file" name="file" accept="image/*" onchange="previewFile(event); document.getElementById('file_name').value = this.value;">
+							<input type="file" id="input_file" name="file" accept="image/*" onchange="previewFile(event);">
 						</div>
-						<img id="output" src="<?php echo $picture; ?>">
-						<script>
+						<div>
+							<img id="output" src="<?php echo $picture; ?>">
+						</div>
+						<div>
+							<span id="error"></span>
+						</div>
+						<script> // 파일 업로드 이벤트
 						var previewFile = function(event) {
-							var reader = new FileReader();
-							reader.onload = function() {
-								var output = document.getElementById('output');
-								output.src = reader.result;
-							};
-							reader.readAsDataURL(event.target.files[0]);
+							var file = document.getElementById('input_file').value;
+							var output = document.getElementById('output');
+							output.src = '';
+							document.getElementById('file_name').value = file;
+							//file_name.value = input_file.value;
+							if (file != '') {
+								var fileExt = file.substring(file.lastIndexOf('.') + 1);
+								var reg = /gif|jpg|jpeg|png/i; // 업로드 가능 확장자
+								if (reg.test(fileExt) == false) {
+									document.getElementById('error').innerHTML = 'gif, jpg, png로 된 이미지만 업로드 가능합니다.';
+									return;
+								}
+								var reader = new FileReader();
+								reader.onload = function() {
+									output.src = reader.result;
+								};
+								reader.readAsDataURL(event.target.files[0]);
+							}
 						};
 						</script>
 					</div>

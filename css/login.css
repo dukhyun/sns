@@ -109,9 +109,13 @@
 	clip: rect(0,0,0,0);
 	border: 0;
 }
+.filebox #error {
+	font-size: .8em;
+	color: red;
+}
 /* image */
 .filebox #output {
-	max-width: 300px;
+	max-width: 180px;
 	max-height: 180px;
 	border-radius: 50%;
 	margin-top: 5px;

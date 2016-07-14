@@ -27,6 +27,9 @@
 	padding: 5px 10px;
 	border: 1px solid #aaa;
 }
+.form_style #error {
+	color: red;
+}
 /* friend list */
 .list {
 	width: 300px;

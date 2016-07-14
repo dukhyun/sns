@@ -29,16 +29,28 @@ include_once $root.'/../include/header.php';
 			</li>
 			<li>
 				<label>사진:</label>
-				<input type="file" name="file" accept="image/*" onchange="previewFile(event);">
+				<input type="file" name="file" id="file" accept="image/*" onchange="previewFile(event);">
 				<img id="output">
-				<script>
+				<div id="error"></div>
+				<script> // 파일 업로드 이벤트
 				var previewFile = function(event) {
-					var reader = new FileReader();
-					reader.onload = function() {
-						var output = document.getElementById('output');
-						output.src = reader.result;
-					};
-					reader.readAsDataURL(event.target.files[0]);
+					var file = document.getElementById('file').value;
+					var output = document.getElementById('output');
+					output.src = '';
+					//document.getElementById('file_name').value = file;
+					if (file != '') {
+						var fileExt = file.substring(file.lastIndexOf('.') + 1);
+						var reg = /gif|jpg|jpeg|png/i; // 업로드 가능 확장자
+						if (reg.test(fileExt) == false) {
+							document.getElementById('error').innerHTML = 'gif, jpg, png로 된 이미지만 업로드 가능합니다.';
+							return;
+						}
+						var reader = new FileReader();
+						reader.onload = function() {
+							output.src = reader.result;
+						};
+						reader.readAsDataURL(event.target.files[0]);
+					}
 				};
 				</script>
 			</li>
