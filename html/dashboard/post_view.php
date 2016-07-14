@@ -9,12 +9,18 @@
 	$date = time_set($row['date']);
 	$image  = $row['image'];
 ?>
-	<div class="post">
+	<div>
 	
 		<div class="head clearfix">
+	<?php
+		$picture = get_user_picture($conn, $user_id);
+		if ($picture !== NULL) {
+			printf('<img class="floatleft" src="/file/%s">', $picture);
+		}
+	?>
 			<h3 class="floatleft"><?php echo $nick; ?></h3>
 	<?php
-		printf('<a class="op floatleft" href="/dashboard/?user=%d&category_id=%d">%s</a>', $user_id, $category_id, $category);
+		printf('<a class="category floatleft" href="/dashboard/?user=%d&category_id=%d">%s</a>', $user_id, $category_id, $category);
 		// admin
 		if (check_login() === true) {
 			if ($_SESSION['id'] !== get_user_email($conn, $user_id)) {
@@ -36,17 +42,17 @@
 		}
 	?>
 		</div>
-		
+		<ul class="post">
+			<li><?php echo $content; ?></li>
 		<?php
 			if ($image != NULL) {
 		?>
-		<img src="/file/<?php echo $image; ?>">
+			<li><img src="/file/<?php echo $image; ?>"></li>
 		<?php
 			}
 		?>
-		<p><?php echo $content; ?></p>
-		<p><?php echo $date; ?></p>
-		
+		</ul>
+		<div class="date"><?php echo $date; ?></div>
 		<!-- comment //-->
 	</div>
 </article>

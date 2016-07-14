@@ -50,6 +50,18 @@ function get_user_nick($conn, $user_id) {
 	return $row['nick'];
 }
 
+// post(user_id) -> user(picture)
+function get_user_picture($conn, $user_id) {
+	$query = sprintf("SELECT picture FROM user WHERE id = %d", $user_id);
+	$result = mysqli_query($conn, $query);
+	if ($result === false) {
+		die ("Database access failed: ".mysqli_error());
+	}
+	$row = mysqli_fetch_assoc($result);
+	
+	return $row['picture'];
+}
+
 // post(category_id) -> category(name)
 function get_category_name($conn, $id) {
 	$query = sprintf("SELECT name FROM category WHERE id = %d", $id);
@@ -95,7 +107,6 @@ function get_category_list($conn, $user_id) {
 	
 	return $result;
 }
-
 
 // 타임셋
 function time_set($date) {

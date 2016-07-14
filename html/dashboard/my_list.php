@@ -1,6 +1,6 @@
 <section class="main floatleft">
 	<!-- action //-->
-	<div class="action">
+	<div class="action clearfix">
 		<a class="floatleft" href="/dashboard/write_post.php">글작성</a>
 		<a class="floatleft" href="/dashboard/friend/friend_list.php">친구관리</a>
 	</div>

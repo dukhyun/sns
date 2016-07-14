@@ -5,13 +5,13 @@ require_once $root.'/../include/host.php';
 start_session();
 ?>
 
-<header>
+<header class="clearfix">
 <?php
 if (check_login()) {  // 로그인
 	// 세션 : get_nick();
 	$conn = get_connection();
 ?>
-	<div class="title floatleft">
+	<div class="floatleft">
 		<a href="/dashboard/">싹트네</a>
 	</div>
 	<div class="floatright">
@@ -22,8 +22,9 @@ if (check_login()) {  // 로그인
 	</div>
 	<div class="floatright">
 		<?php
+		$user_id = get_user_id($conn, $_SESSION['id']);
 		printf('<a href="/dashboard/?user=%d">%s</a>',
-			get_user_id($conn, $_SESSION['id']), $_SESSION['id']);
+			$user_id, get_user_nick($conn, $user_id));
 		?>
 	</div>
 <?php

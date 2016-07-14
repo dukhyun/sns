@@ -1,10 +1,7 @@
 /* side */
 .side {
 	width: 170px;
-	height: 300px;
 	padding: 10px;
-	border-right: 1px solid #ddd;
-	background-color: #eee;
 }
 .widget {
 	width: 150px;
@@ -30,12 +27,13 @@
 	margin-left: 10px;
 }
 .action {
-	height: 50px;
+	margin: 10px 0;
 	display: block;
 }
 .action a {
-    padding: 10px;
+    padding: 5px;
 	border-radius: 3px;
+	margin-right: 5px;
 }
 .action a:hover {
 	color: black;
@@ -43,33 +41,45 @@
 }
 /* post view */
 article {
-	margin-bottom: 20px;
-}
-article .post {
 	width: 600px;
-	padding: 10px;
 	border: 1px solid #ddd;
 	border-radius: 3px;
+	margin-bottom: 20px;
 }
-.post .head h3, .post .head .op, .post .head a {
+article .head h3, article .head .category, article .head a {
 	line-height: 30px;
 }
-.post .head {
-	padding-bottom: 5px;
+article .head {
+	padding: 10px 10px;
 	border-bottom: 1px solid #ddd;
 }
-.post .head .op {
+article .head img {
+	width: 30px;
+	height: 30px;
+	border-radius: 50%;
+	margin-right: 10px;
+}
+article .head .category {
 	padding-left: 10px;
 	border-left: 1px solid #ddd;
 	margin-left: 10px;
 }
-.post .head a {
+article .head a {
 	font-size: .8em;
 	margin-left: 4px;
 }
-.post img {
+article .post {
+	padding: 10px;
+}
+article .post img {
 	margin-top: 10px;
 	max-width: 100%;
+}
+article .date {
+	color: #899;
+	padding: 5px 10px 10px;
+	border-top: 1px solid #ddd;
+	margin-top: 10px;
 }
 /* form */
 .form_style {
