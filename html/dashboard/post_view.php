@@ -29,14 +29,14 @@
 				$row2 = mysqli_fetch_assoc($result2);
 				if ($user_id !== $row2['friend_id']) {
 	?>			
-				<a class="floatright" href="/dashboard/friend/friend_db.php?id=<?php echo $user_id?>">친구추가</a>
+				<a class="floatright" href="/dashboard/friend/friend_db.php?id=<?php echo $user_id; ?>">친구추가</a>
 	<?php
 				}
 			}
 			if ($_SESSION['id'] == get_user_email($conn, $user_id)) {
 	?>
-			<a class="floatright" href="/dashboard/delete_db.php?post_id=<?php echo $post_id ?>">글삭제</a>
-			<a class="floatright" href="/dashboard/update_post.php?post_id=<?php echo $post_id ?>">글수정</a>
+			<a class="floatright" href="/dashboard/delete_db.php?post_id=<?php echo $post_id; ?>">글삭제</a>
+			<a class="floatright" href="/dashboard/update_post.php?post_id=<?php echo $post_id; ?>">글수정</a>
 	<?php
 			}
 		}
@@ -52,7 +52,6 @@
 			}
 		?>
 		</ul>
-		<div class="date"><?php echo $date; ?></div>
-		<!-- comment //-->
+		<div class="date"><a href="/dashboard/post_view_detail.php?post_id=<?php echo $post_id; ?>"><?php echo $date; ?></a></div>
 	</div>
 </article>
