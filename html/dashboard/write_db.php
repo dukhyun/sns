@@ -53,13 +53,14 @@ if (isset($_POST['content'])) {
 		// insert post id
 		$post_id = mysqli_insert_id($conn);
 		// image upload
-		$file_name = $post_id.'_'.time();
-		$image = file_upload($root, $file_name, $ext);
-		$update_query = sprintf("UPDATE post SET image='%s' WHERE id=%d", $image, $post_id);
-		if (mysqli_query($conn, $update_query) === false) {
-			echo mysqli_error($conn);
+		if ($_FILES['file']['name'] !== NULL) {
+			$file_name = $post_id.'_'.time();
+			$image = file_upload($root, $file_name, $ext);
+			$update_query = sprintf("UPDATE post SET image='%s' WHERE id=%d", $image, $post_id);
+			if (mysqli_query($conn, $update_query) === false) {
+				echo mysqli_error($conn);
+			}
 		}
-		
 		header("Location: /dashboard/");
 	}
 } else {

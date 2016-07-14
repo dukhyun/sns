@@ -16,9 +16,10 @@
 	$select_query = sprintf("SELECT * FROM post WHERE id=%d", $post_id);
 	$result = mysqli_query($conn, $select_query);
 	$row = mysqli_fetch_assoc($result);
-	
-	include "./post_view.php";
 ?>
+
+<section class="main center">
+<?php include "./post_view.php"; ?>
 	<!--comment-->
 	댓글
 	<form action="comment/comment_db.php" method="post">
@@ -54,6 +55,9 @@
 <?php
 	}
 ?>
+</section>
+
+
 <?php // footer ?>
 
 </body>
