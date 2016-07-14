@@ -24,7 +24,7 @@
 		// admin
 		if (check_login() === true) {
 			if ($_SESSION['id'] !== get_user_email($conn, $post_user_id)) {
-				$select_query = sprintf("SELECT * FROM friend WHERE post_user_id=%d", get_post_user_id($conn, $_SESSION['id']));
+				$select_query = sprintf("SELECT * FROM friend WHERE user_id=%d", get_user_id($conn, $_SESSION['id']));
 				$result_friend = mysqli_query($conn, $select_query);
 				$friend_ok = 0;
 				while ($row_friend = mysqli_fetch_assoc($result_friend)) {
