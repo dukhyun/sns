@@ -1,7 +1,20 @@
+/* action */
+.action {
+	margin-bottom: 10px;
+}
+.action a {
+    padding: 5px;
+	border-radius: 3px;
+	margin-right: 5px;
+}
+.action a:hover {
+	color: black;
+	background-color: LawnGreen;
+}
 /* side */
 .side {
 	width: 170px;
-	padding: 10px;
+	padding: 0 10px 20px;
 }
 .widget {
 	width: 150px;
@@ -43,19 +56,6 @@
 }
 .main {
 	margin-left: 10px;
-}
-.action {
-	margin: 10px 0;
-	display: block;
-}
-.action a {
-    padding: 5px;
-	border-radius: 3px;
-	margin-right: 5px;
-}
-.action a:hover {
-	color: black;
-	background-color: LawnGreen;
 }
 /* post view */
 article {
