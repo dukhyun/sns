@@ -11,8 +11,20 @@
 	
 	$conn = get_connection();
 	$user_id = get_user_id($conn, $_SESSION['id']);
-	$delete_user_query = sprintf("DELETE FROM user WHERE id=%d", $user_id);
-	if (mysqli_query($conn, $delete_user_query) === false) {
+	
+	// post delete
+	$delete_query = sprintf("DELETE FROM post WHERE user_id=%d", $user_id);
+	if (mysqli_query($conn, $delete_query) === false){
+		echo mysqli_error($conn);
+	} else {
+		echo 'POST DB DELETE<br>';
+	}
+	
+	//
+	
+	// user delete
+	$delete_query = sprintf("DELETE FROM user WHERE id=%d", $user_id);
+	if (mysqli_query($conn, $delete_query) === false) {
 		echo mysqli_error($conn);
 	} else {
 		echo 'USER DB DELETE<br>';

@@ -50,7 +50,7 @@
 		<ul class="post">
 			<li><?php echo $content; ?></li>
 		<?php
-			if ($image != NULL) {
+			if ($image !== NULL) {
 		?>
 			<li><img src="/file/<?php echo $image; ?>"></li>
 		<?php

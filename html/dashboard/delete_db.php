@@ -19,11 +19,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
 	$conn = get_connection();
 	$delete_comment_qury = sprintf("DELETE FROM comment WHERE post_id=%d", $post_id);
 	mysqli_query($conn, $delete_comment_qury);
-	$select_query = sprintf("SELECT * FROM post WHERE user_id=%s", $user_id);
+	$select_query = sprintf("SELECT * FROM post WHERE user_id=%d", $user_id);
 	$result = mysqli_query($conn, $select_query);
 	while ($row = mysqli_fetch_assoc($result)) {
 		if ($post_id == $row['id']) {
-			$delete_query = sprintf("DELETE FROM post WHERE id=%s", $row['id']);
+			$delete_query = sprintf("DELETE FROM post WHERE id=%d", $row['id']);
 			if (mysqli_query($conn, $delete_query) === false){
 				echo mysqli_error($conn);
 			}

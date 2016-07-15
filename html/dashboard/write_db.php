@@ -36,6 +36,9 @@ if (isset($_POST['content'])) {
 	if ($upload_ok == 0) {
 		echo 'Sorry, your file was not uploaded.';
 		header('Location: write_post.php');
+	} else {
+		$file_name = $post_id.'_'.time();
+		$upload_file_name = 1;
 	}
 	
 	// insert db
@@ -53,10 +56,9 @@ if (isset($_POST['content'])) {
 		// insert post id
 		$post_id = mysqli_insert_id($conn);
 		// image upload
-		if ($_FILES['file']['name'] !== NULL) {
-			$file_name = $post_id.'_'.time();
-			$image = file_upload($root, $file_name, $ext);
-			$update_query = sprintf("UPDATE post SET image='%s' WHERE id=%d", $image, $post_id);
+		if ($upload_file_name == 1) {
+			$upload_file_name = file_upload($root, $file_name, $ext);
+			$update_query = sprintf("UPDATE post SET image='%s' WHERE id=%d", $upload_file_name, $post_id);
 			if (mysqli_query($conn, $update_query) === false) {
 				echo mysqli_error($conn);
 			}
