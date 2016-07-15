@@ -195,7 +195,8 @@ function check_user_account($id, $password) {
 	mysqli_stmt_execute($stmt);
 	$result = mysqli_stmt_get_result($stmt);
 	if (mysqli_num_rows($result) === 0) {
-		header('Location: error.php?error_code=1');
+		// header('Location: error.php?error_code=1');
+		header('Location: /');
 	} else {
 		$row = mysqli_fetch_assoc($result);
 		$hash = $row["pw_hash"];

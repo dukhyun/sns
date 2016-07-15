@@ -54,7 +54,7 @@
 }
 /* about */
 .about {
-	width: 600px;
+	width: 602px;
 	padding: 10px 0;
 	border: 1px solid #ddd;
 	border-radius: 3px;
@@ -72,15 +72,20 @@
 	border-radius: 3px;
 	background-color: #529ECC;
 }
-.about li, .about .side, .about input {
+.about li, .about .side, .about input, .about .error {
 	min-height: 30px;
     flex-direction: row;
 	line-height: 30px;
 }
-.about .side {
+.about .side, .about .error {
 	width: 150px;
-	text-align: right;
 	padding: 0 10px;
+}
+.about .side {
+	text-align: right;
+}
+.about .error {
+	color: red;
 }
 .about input, .about textarea, .about select {
 	width: 300px;
