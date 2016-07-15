@@ -1,15 +1,34 @@
 /* action */
 .action {
+	width: 100%;
 	margin-bottom: 10px;
 }
+.action li {
+	text-align : center;
+	width: 50%;
+	padding: 5px 0;
+	border-width: 1px 0;
+	border-style: solid;
+	border-color: #ddd;
+	background-color: LightBlue;
+}
+.action li:hover {
+	background-color: LawnGreen;
+}
+.action li:first-child {
+	border-radius: 3px 0 0 3px;
+	border-left: 1px solid #ddd;
+}
+.action li:last-child {
+	border-radius: 0 3px 3px 0;
+	border-right: 1px solid #ddd;
+}
 .action a {
-    padding: 5px;
-	border-radius: 3px;
-	margin-right: 5px;
+	margin: 0 5px;
 }
 .action a:hover {
 	color: black;
-	background-color: LawnGreen;
+	/* background-color: LawnGreen; */
 }
 /* side */
 .side {
@@ -34,6 +53,9 @@
 }
 .widget li {
 	font-size: .8em;
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis;
 }
 .widget .nick {
 	font-size: 1em;
