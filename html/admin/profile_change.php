@@ -113,7 +113,7 @@ include_once $root.'/../include/header.php';
 			</li>
 		</ul>
 		</form>
-		<form action="" method="post">
+		<form action="./register_delete.php" method="post">
 		<ul>
 			<li class="clearfix">
 				<div class="side floatleft"></div>

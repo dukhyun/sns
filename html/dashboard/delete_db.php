@@ -24,7 +24,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
 	while ($row = mysqli_fetch_assoc($result)) {
 		if ($post_id == $row['id']) {
 			$delete_query = sprintf("DELETE FROM post WHERE id=%s", $row['id']);
-			if (mysqli_query(mysqli_query($conn, $delete_query)) === false){
+			if (mysqli_query($conn, $delete_query) === false){
 				echo mysqli_error($conn);
 			}
 			else {	
