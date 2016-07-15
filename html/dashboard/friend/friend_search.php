@@ -16,7 +16,7 @@
 		$user_id = get_user_id($conn, $_SESSION['id']);
 		$friend_nick = $_POST['nick'];
 		
-		$select_query = sprintf("SELECT * FROM user WHERE nick='%s'", $friend_nick);
+		$select_query = sprintf("SELECT * FROM user WHERE (nick) LIKE '%%%s%%'", $friend_nick);
 		$result = mysqli_query($conn, $select_query);
 		$row = mysqli_fetch_assoc($result);
 	?>			
