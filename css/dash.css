@@ -35,6 +35,9 @@
 	border-radius: 50%;
 }
 /* section */
+.dashboard {
+	width: 800px;
+}
 .main, .detail {
 	width: 600px;
 }

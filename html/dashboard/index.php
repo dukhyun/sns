@@ -11,6 +11,8 @@ $root = '..';
 include_once $root.'/../include/header.php';
 ?>
 
+<div class="content">
+	<div class="dashboard center clearfix">
 <?php
 $conn = get_connection();
 // 보여줄 user_id 값 받아오기
@@ -34,8 +36,9 @@ if (isset($_GET['user'])) {
 	include_once './sidebar.php';
 	include_once './my_list.php';
 }
-
 ?>
+	</div>
+</div>
 
 <?php // footer ?>
 
