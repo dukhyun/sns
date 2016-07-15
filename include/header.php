@@ -18,7 +18,7 @@ if (check_login()) {  // 로그인
 		<a href="/logout.php">logout</a>
 	</div>
 	<div class="floatright">
-		<a href="/admin/">profile</a>
+		<a href="/admin/profile_change.php">profile</a>
 	</div>
 	<div class="floatright">
 		<?php

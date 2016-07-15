@@ -33,6 +33,7 @@
 .login h1, .about h1 {
 	font-size: 42px;
 	text-align: center;
+	line-height: 60px;
 	height: 80px;
 }
 .login li, .about li {
@@ -54,7 +55,22 @@
 /* about */
 .about {
 	width: 600px;
-	margin: 0 auto;
+	padding: 10px 0;
+	border: 1px solid #ddd;
+	border-radius: 3px;
+}
+/* menu */
+.about .menu {
+	text-align: center;
+}
+.about .menu a {
+	padding: 5px 10px;
+	margin: 0 10px;
+}
+.about .menu a:hover {
+	color: white;
+	border-radius: 3px;
+	background-color: #529ECC;
 }
 .about li, .about .side, .about input {
 	min-height: 30px;
@@ -136,4 +152,13 @@
 	background-color: #f5f5f5;
 	border: 1px solid #ddd;
 	border-radius: 3px;
+}
+/* ul */
+.about li:first-child {
+	padding-top: 10px;
+	border-top: 1px solid #ddd;
+}
+/* drawal */
+.about input.drawal {
+	background-color: red;
 }
