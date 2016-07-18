@@ -29,17 +29,17 @@ include_once $root.'/../include/header.php';
 		<ul>
 			<li class="clearfix">
 				<div class="side floatleft">이전 비밀번호</div>
-				<input class="floatleft" type="text" id="pw" name="pw">
+				<input class="floatleft" type="password" id="pw" name="pw">
 				<div class="error floatleft"></div>
 			</li>
 			<li class="clearfix">
 				<div class="side floatleft">새 비밀번호</div>
-				<input class="floatleft" type="text" id="pw_new" name="pw_new">
+				<input class="floatleft" type="password" id="pw_new" name="pw_new">
 				<div class="error floatleft"></div>
 			</li>
 			<li class="clearfix">
 				<div class="side floatleft">새 비밀번호 확인</div>
-				<input class="floatleft" type="text" id="pw_confirm" name="pw_confirm">
+				<input class="floatleft" type="password" id="pw_confirm" name="pw_confirm">
 				<div class="error floatleft"></div>
 			</li>
 			<li class="clearfix">
