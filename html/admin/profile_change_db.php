@@ -15,8 +15,6 @@
 	// upload picture
 	if ($_FILES['file']['name'] != NULL) {
 		$upload_file_name = file_upload($root, $user_id);
-	} else {
-		$upload_file_name = 0;
 	}
 	
 	// db update
@@ -27,7 +25,7 @@
 	
 	$update_query = sprintf("UPDATE user SET");
 	$update_query .= sprintf(" email='%s', nick='%s', intro='%s'", $email, $nick, $intro);
-	if ($upload_file_name != 0) {
+	if (isset($upload_file_name)) {
 		$update_query .= sprintf(", picture='%s'", $upload_file_name);
 	}
 	if ($gender == 0) {
