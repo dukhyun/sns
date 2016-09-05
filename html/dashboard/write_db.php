@@ -33,13 +33,6 @@ if (isset($_POST['content'])) {
 		echo 'Sorry, your file is too large.';
 		$upload_ok = 0;
 	}
-	if ($upload_ok == 0) {
-		echo 'Sorry, your file was not uploaded.';
-		header('Location: write_post.php');
-	} else {
-		$file_name = $post_id.'_'.time();
-		$upload_file_name = 1;
-	}
 	
 	// insert db
 	if ($category_id == 0) {
@@ -53,8 +46,14 @@ if (isset($_POST['content'])) {
 		echo mysqli_error($conn);
 	} else {
 		echo 'DB INSERT<br>';
-		// insert post id
-		$post_id = mysqli_insert_id($conn);
+		if ($upload_ok == 0) {
+			echo 'Sorry, your file was not uploaded.';
+			header('Location: write_post.php');
+		} else {
+			$post_id = mysqli_insert_id($conn); // insert post id
+			$file_name = $post_id.'_'.time();
+			$upload_file_name = 1;
+		}
 		// image upload
 		if ($upload_file_name == 1) {
 			$upload_file_name = file_upload($root, $file_name, $ext);
